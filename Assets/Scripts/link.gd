@@ -2,6 +2,13 @@ extends CharacterBody2D
 
 @export var speed = 400
 
+func _ready() -> void:
+	if TeleportParameters.x:
+		position.x = TeleportParameters.x
+	if TeleportParameters.y:
+		position.y = TeleportParameters.y
+	TeleportParameters.done = true
+
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed

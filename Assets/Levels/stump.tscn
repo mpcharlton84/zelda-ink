@@ -1,0 +1,683 @@
+[gd_scene load_steps=10 format=3 uid="uid://u1tv40ggywmr"]
+
+[ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_yyxl4"]
+[ext_resource type="Texture2D" uid="uid://cjm10i4nwp5jk" path="res://Assets/Sprites/stump.png" id="2_wyk6m"]
+[ext_resource type="Texture2D" uid="uid://xiaqm6fxwk4x" path="res://Assets/Sprites/tree.png" id="3_enqc8"]
+[ext_resource type="Script" uid="uid://bmlecx7ffgqgr" path="res://Assets/Scripts/link.gd" id="4_g6bq1"]
+[ext_resource type="SpriteFrames" uid="uid://xbjp0xhuvfcq" path="res://Assets/Sprites/link.tres" id="5_3nlw2"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uhp12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epcfu"]
+size = Vector2(286.66666, 283.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx45u"]
+size = Vector2(300, 331)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ylo1"]
+size = Vector2(77, 84)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Level" type="Area2D" parent="."]
+position = Vector2(79, -325)
+script = ExtResource("1_yyxl4")
+follow = true
+limit_left = 500
+limit_right = -400
+limit_bottom = -50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
+shape = SubResource("SegmentShape2D_uhp12")
+
+[node name="Stump" type="StaticBody2D" parent="Level"]
+position = Vector2(515, -120)
+scale = Vector2(0.3, 0.3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Stump"]
+texture = ExtResource("2_wyk6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Stump"]
+position = Vector2(10, -8.333336)
+shape = SubResource("RectangleShape2D_epcfu")
+
+[node name="Tree" type="StaticBody2D" parent="Level"]
+position = Vector2(714, 644)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree2" type="StaticBody2D" parent="Level"]
+position = Vector2(884.00006, 677)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree2"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree2"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree19" type="StaticBody2D" parent="Level"]
+position = Vector2(1297, -9)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree19"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree19"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree41" type="StaticBody2D" parent="Level"]
+position = Vector2(1481, -59)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree41"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree41"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree20" type="StaticBody2D" parent="Level"]
+position = Vector2(1232, 210)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree20"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree20"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree39" type="StaticBody2D" parent="Level"]
+position = Vector2(1478, 239)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree39"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree39"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree22" type="StaticBody2D" parent="Level"]
+position = Vector2(865.00006, -661)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree22"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree22"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree27" type="StaticBody2D" parent="Level"]
+position = Vector2(689, -669)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree27"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree27"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree44" type="StaticBody2D" parent="Level"]
+position = Vector2(753, -773)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree44"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree44"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree31" type="StaticBody2D" parent="Level"]
+position = Vector2(96, -836.00006)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree31"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree31"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree29" type="StaticBody2D" parent="Level"]
+position = Vector2(291, -846.00006)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree29"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree29"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree45" type="StaticBody2D" parent="Level"]
+position = Vector2(530, -841)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree45"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree45"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree28" type="StaticBody2D" parent="Level"]
+position = Vector2(502, -695)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree28"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree28"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree43" type="StaticBody2D" parent="Level"]
+position = Vector2(1055, -772)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree43"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree43"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree46" type="StaticBody2D" parent="Level"]
+position = Vector2(1100, -619)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree46"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree46"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree26" type="StaticBody2D" parent="Level"]
+position = Vector2(992, -508.00003)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree26"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree26"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree24" type="StaticBody2D" parent="Level"]
+position = Vector2(1117, -350)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree24"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree24"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree42" type="StaticBody2D" parent="Level"]
+position = Vector2(1329, -652)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree42"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree42"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree47" type="StaticBody2D" parent="Level"]
+position = Vector2(1270, -449)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree47"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree47"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree23" type="StaticBody2D" parent="Level"]
+position = Vector2(1231, -185)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree23"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree23"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree48" type="StaticBody2D" parent="Level"]
+position = Vector2(1542, -392)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree48"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree48"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree40" type="StaticBody2D" parent="Level"]
+position = Vector2(1443, -279)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree40"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree40"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree18" type="StaticBody2D" parent="Level"]
+position = Vector2(1146, 362)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree18"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree18"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree38" type="StaticBody2D" parent="Level"]
+position = Vector2(1330, 426)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree38"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree38"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree17" type="StaticBody2D" parent="Level"]
+position = Vector2(1073, 528)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree17"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree17"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree4" type="StaticBody2D" parent="Level"]
+position = Vector2(1110, 645)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree4"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree4"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree5" type="StaticBody2D" parent="Level"]
+position = Vector2(1277, 706)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree5"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree5"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree6" type="StaticBody2D" parent="Level"]
+position = Vector2(1462, 612)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree6"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree6"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree8" type="StaticBody2D" parent="Level"]
+position = Vector2(140, 642)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree8"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree8"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree11" type="StaticBody2D" parent="Level"]
+position = Vector2(-407, 533)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree11"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree11"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree10" type="StaticBody2D" parent="Level"]
+position = Vector2(-311, 642)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree10"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree10"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree12" type="StaticBody2D" parent="Level"]
+position = Vector2(151, 378)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree12"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree12"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree32" type="StaticBody2D" parent="Level"]
+position = Vector2(-181, -778)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree32"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree32"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree34" type="StaticBody2D" parent="Level"]
+position = Vector2(-276, -584)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree34"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree34"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree37" type="StaticBody2D" parent="Level"]
+position = Vector2(-417, -487)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree37"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree37"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree36" type="StaticBody2D" parent="Level"]
+position = Vector2(-417, -761)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree36"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree36"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree35" type="StaticBody2D" parent="Level"]
+position = Vector2(-59, -627)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree35"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree35"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree33" type="StaticBody2D" parent="Level"]
+position = Vector2(-177, -405)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree33"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree33"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree21" type="StaticBody2D" parent="Level"]
+position = Vector2(-223, -231)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree21"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree21"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree25" type="StaticBody2D" parent="Level"]
+position = Vector2(-257, -86)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree25"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree25"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree30" type="StaticBody2D" parent="Level"]
+position = Vector2(-441, -209)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree30"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree30"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree15" type="StaticBody2D" parent="Level"]
+position = Vector2(-200, 90)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree15"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree15"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree16" type="StaticBody2D" parent="Level"]
+position = Vector2(-402, 90)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree16"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree16"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree14" type="StaticBody2D" parent="Level"]
+position = Vector2(-104, 220)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree14"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree14"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree13" type="StaticBody2D" parent="Level"]
+position = Vector2(-16, 352)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree13"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree13"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree9" type="StaticBody2D" parent="Level"]
+position = Vector2(220, 530)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree9"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree9"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree7" type="StaticBody2D" parent="Level"]
+position = Vector2(288, 642)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree7"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree7"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree50" type="StaticBody2D" parent="Level"]
+position = Vector2(303, -417)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree50"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree50"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree51" type="StaticBody2D" parent="Level"]
+position = Vector2(100, -132.00003)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree51"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree51"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree52" type="StaticBody2D" parent="Level"]
+position = Vector2(814, -325)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree52"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree52"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree53" type="StaticBody2D" parent="Level"]
+position = Vector2(955, 50)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree53"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree53"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Tree54" type="StaticBody2D" parent="Level"]
+position = Vector2(588, 233)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Tree54"]
+texture = ExtResource("3_enqc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree54"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_rx45u")
+
+[node name="Link" type="CharacterBody2D" parent="Level"]
+position = Vector2(-71, 377)
+script = ExtResource("4_g6bq1")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Level/Link"]
+position = Vector2(580, 305)
+scale = Vector2(0.3, 0.3)
+sprite_frames = ExtResource("5_3nlw2")
+animation = &"idle"
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Link"]
+position = Vector2(579.5, 311)
+shape = SubResource("RectangleShape2D_2ylo1")
