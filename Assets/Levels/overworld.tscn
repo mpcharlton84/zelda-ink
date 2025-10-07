@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://c6fkc12cdxaos"]
+[gd_scene load_steps=68 format=3 uid="uid://c6fkc12cdxaos"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_5u5rw"]
 [ext_resource type="Script" uid="uid://bmlecx7ffgqgr" path="res://Assets/Scripts/link.gd" id="1_cuilo"]
@@ -214,17 +214,20 @@ size = Vector2(278, 282)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tu6b"]
 size = Vector2(130, 133.33334)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7f00"]
-size = Vector2(395, 23.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mqwg"]
 size = Vector2(300, 331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpomn"]
 size = Vector2(77, 84)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7f00"]
+size = Vector2(395, 23.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4g7t"]
 size = Vector2(80.5, 395)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2bs2"]
+size = Vector2(20, 303)
 
 [node name="Node2D" type="Node2D"]
 
@@ -725,27 +728,6 @@ texture = ExtResource("3_jpomn")
 position = Vector2(11.666664, -6.6666656)
 shape = SubResource("RectangleShape2D_4tu6b")
 
-[node name="Teleport" type="Area2D" parent="Level"]
-position = Vector2(438, 219)
-script = ExtResource("6_4tu6b")
-scene = "house"
-y = 220
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
-position = Vector2(130.5, 3.25)
-shape = SubResource("RectangleShape2D_f7f00")
-
-[node name="Teleport2" type="Area2D" parent="Level"]
-position = Vector2(1126, -901)
-script = ExtResource("6_4tu6b")
-scene = "castle"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
-position = Vector2(30.5, -1.5)
-shape = SubResource("RectangleShape2D_f7f00")
-
 [node name="Tree9" type="StaticBody2D" parent="Level"]
 position = Vector2(-71, -806)
 scale = Vector2(0.8, 0.8)
@@ -861,7 +843,6 @@ position = Vector2(1, 16.5)
 shape = SubResource("RectangleShape2D_7mqwg")
 
 [node name="Link" type="CharacterBody2D" parent="Level"]
-position = Vector2(-7, 16)
 script = ExtResource("1_cuilo")
 metadata/_edit_group_ = true
 
@@ -876,14 +857,50 @@ speed_scale = 3.0
 position = Vector2(579.5, 311)
 shape = SubResource("RectangleShape2D_jpomn")
 
+[node name="Teleport" type="Area2D" parent="Level"]
+position = Vector2(438, 219)
+script = ExtResource("6_4tu6b")
+scene = "house"
+y = 220
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
+position = Vector2(130.5, 3.25)
+shape = SubResource("RectangleShape2D_f7f00")
+
+[node name="Teleport2" type="Area2D" parent="Level"]
+position = Vector2(1126, -901)
+script = ExtResource("6_4tu6b")
+scene = "castle"
+x = 1100
+y = 1100
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
+position = Vector2(30.5, -1.5)
+shape = SubResource("RectangleShape2D_f7f00")
+
 [node name="Teleport3" type="Area2D" parent="Level"]
 script = ExtResource("6_4tu6b")
 scene = "overworld2"
+x = -15
+y = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
 position = Vector2(-220.25, 846)
 shape = SubResource("RectangleShape2D_c4g7t")
 
+[node name="Teleport4" type="Area2D" parent="Level"]
+script = ExtResource("6_4tu6b")
+scene = "overworld2"
+x = -15
+y = -300
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport4"]
+position = Vector2(-195, 388)
+shape = SubResource("RectangleShape2D_g2bs2")
+
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport4" to="Level/Teleport4" method="_on_body_entered"]

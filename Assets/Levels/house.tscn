@@ -44,11 +44,11 @@ size = Vector2(458, 198)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xjsr"]
 size = Vector2(297.5, 155.00006)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8max"]
-size = Vector2(254, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mmi0"]
 size = Vector2(73, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2jj0"]
+size = Vector2(331, 20)
 
 [node name="Node2D" type="Node2D"]
 
@@ -189,15 +189,6 @@ position = Vector2(13.75, -5)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_5xjsr")
 
-[node name="Teleport" type="Area2D" parent="."]
-position = Vector2(438, 613)
-script = ExtResource("8_0vdpk")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
-position = Vector2(117, 0)
-shape = SubResource("RectangleShape2D_d8max")
-
 [node name="Link" type="CharacterBody2D" parent="."]
 script = ExtResource("9_swuar")
 metadata/_edit_group_ = true
@@ -213,5 +204,12 @@ speed_scale = 3.0
 position = Vector2(579.5, 309.5)
 shape = SubResource("RectangleShape2D_3mmi0")
 
-[connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("8_0vdpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(580, 611)
+shape = SubResource("RectangleShape2D_p2jj0")
+
 [connection signal="ready" from="Link" to="Link" method="_on_ready"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

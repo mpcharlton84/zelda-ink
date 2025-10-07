@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dfctiqyi77tbx"]
+[gd_scene load_steps=34 format=3 uid="uid://dfctiqyi77tbx"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_6cwyv"]
 [ext_resource type="Texture2D" uid="uid://drg58x10krfyy" path="res://Assets/Maps/02d.png" id="2_owmk3"]
@@ -108,12 +108,22 @@ size = Vector2(77, 84)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w6xs"]
 size = Vector2(36, 186)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owmk3"]
+size = Vector2(29.5, 235)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr7iu"]
+size = Vector2(353, 100)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Level" type="Area2D" parent="."]
 position = Vector2(-21, 26)
 script = ExtResource("1_6cwyv")
 follow = true
+limit_left = 675
+limit_right = 500
+limit_top = 750
+limit_bottom = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
 shape = SubResource("SegmentShape2D_shd1b")
@@ -195,7 +205,7 @@ shape = SubResource("SegmentShape2D_57eve")
 shape = SubResource("SegmentShape2D_b85bl")
 
 [node name="Link" type="CharacterBody2D" parent="Level"]
-position = Vector2(-21, 12)
+position = Vector2(-24, 29)
 script = ExtResource("3_5w6xs")
 metadata/_edit_group_ = true
 
@@ -212,9 +222,34 @@ shape = SubResource("RectangleShape2D_4coka")
 
 [node name="Teleport" type="Area2D" parent="Level"]
 script = ExtResource("5_owmk3")
+x = -675
+y = 550
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
 position = Vector2(655, 326)
 shape = SubResource("RectangleShape2D_5w6xs")
 
+[node name="Teleport2" type="Area2D" parent="Level"]
+script = ExtResource("5_owmk3")
+x = -700
+y = 100
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
+position = Vector2(651, 17)
+shape = SubResource("RectangleShape2D_owmk3")
+
+[node name="Teleport3" type="Area2D" parent="Level"]
+position = Vector2(21, -26)
+script = ExtResource("5_owmk3")
+scene = "castle"
+x = -600
+y = 1050
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
+position = Vector2(-1, -740)
+shape = SubResource("RectangleShape2D_dr7iu")
+
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
