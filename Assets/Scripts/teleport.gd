@@ -10,4 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 		TeleportParameters.done = false
 		TeleportParameters.x = x
 		TeleportParameters.y = y
-		get_tree().change_scene_to_file("res://Assets/Levels/"+scene+".tscn")
+		call_deferred("change_scene_safe", scene)
+
+func change_scene_safe(scene):
+	get_tree().change_scene_to_file("res://Assets/Levels/"+scene+".tscn")

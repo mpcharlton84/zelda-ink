@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://dn685o0nk8h5q"]
+[gd_scene load_steps=71 format=3 uid="uid://dn685o0nk8h5q"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_shv8r"]
 [ext_resource type="Texture2D" uid="uid://bycirljvksqxd" path="res://Assets/Maps/01d.png" id="2_nie0a"]
@@ -6,6 +6,9 @@
 [ext_resource type="SpriteFrames" uid="uid://xbjp0xhuvfcq" path="res://Assets/Sprites/link.tres" id="4_mmfff"]
 [ext_resource type="Texture2D" uid="uid://do21dpc4jdjdi" path="res://Assets/Sprites/castle-bridge.png" id="5_nie0a"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="6_odrmx"]
+[ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="7_ulgqs"]
+[ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="8_ltcuk"]
+[ext_resource type="PackedScene" uid="uid://bebaucnm5mof8" path="res://Assets/Prefabs/rock.tscn" id="9_ltcuk"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ulgqs"]
 a = Vector2(547, -35)
@@ -233,14 +236,14 @@ b = Vector2(1377, 499)
 a = Vector2(1373, 343)
 b = Vector2(1126, 339)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcuk"]
-size = Vector2(77, 84)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmfff"]
-size = Vector2(543.5, 20)
+size = Vector2(697, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odrmx"]
-size = Vector2(407, 109)
+size = Vector2(253, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcuk"]
+size = Vector2(77, 84)
 
 [node name="Node2D" type="Node2D"]
 
@@ -463,8 +466,256 @@ shape = SubResource("SegmentShape2D_b8pwp")
 [node name="CollisionShape2D62" type="CollisionShape2D" parent="Level/BG"]
 shape = SubResource("SegmentShape2D_t7x20")
 
+[node name="Bridge" type="Sprite2D" parent="Level"]
+position = Vector2(874, 439)
+scale = Vector2(1, 0.9948454)
+texture = ExtResource("5_nie0a")
+
+[node name="Teleport1" type="Area2D" parent="Level"]
+position = Vector2(32, 3)
+script = ExtResource("6_odrmx")
+x = 580
+y = -1100
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport1"]
+position = Vector2(1683.5, 1559.5)
+shape = SubResource("RectangleShape2D_mmfff")
+
+[node name="Teleport2" type="Area2D" parent="Level"]
+script = ExtResource("6_odrmx")
+scene = "overworld2"
+x = -900
+y = -975
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
+position = Vector2(-16.5, 1568)
+shape = SubResource("RectangleShape2D_odrmx")
+
+[node name="Tree" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(-102, -945)
+
+[node name="Tree23" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(197, 1501)
+
+[node name="Tree12" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(442, 1445)
+
+[node name="Bush50" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(45, 1389)
+
+[node name="Tree13" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(607.00006, 1453)
+
+[node name="Tree14" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(787, 1466)
+
+[node name="Tree15" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(956, 1466)
+
+[node name="Tree16" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(1122, 1470)
+
+[node name="Tree17" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(1022, 1532)
+
+[node name="Tree18" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(828, 1549)
+
+[node name="Tree19" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(656, 1553)
+
+[node name="Tree20" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(490, 1549)
+
+[node name="Tree21" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(300, 1549)
+
+[node name="Tree22" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(1256, 1529)
+
+[node name="Bush51" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(107, 1418)
+
+[node name="Bush" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(-207, -934)
+
+[node name="Bush2" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(-128, -795)
+
+[node name="Bush3" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(-196, -769)
+
+[node name="Bush4" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(-48, 70)
+
+[node name="Bush5" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(61, 713)
+
+[node name="Bush6" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(121, 730)
+
+[node name="Bush7" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1247, 621)
+
+[node name="Bush8" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1304, 617)
+
+[node name="Bush10" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1467, 730)
+
+[node name="Bush11" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1635, 623)
+
+[node name="Bush12" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1918, 85)
+
+[node name="Bush13" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1782, -74)
+
+[node name="Bush14" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1909, -354)
+
+[node name="Bush15" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1914, -484)
+
+[node name="Bush16" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1748, -486)
+
+[node name="Bush17" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1746, -346)
+
+[node name="Bush18" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1743, -621)
+
+[node name="Tree2" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(1914, -945)
+
+[node name="Bush19" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1787, -800)
+
+[node name="Bush20" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(2007, -790)
+
+[node name="Tree3" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(474, -221)
+
+[node name="Tree4" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(1252, -243)
+
+[node name="Bush21" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(285, -507)
+
+[node name="Bush22" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(368, -507)
+
+[node name="Bush23" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(603, 177)
+
+[node name="Bush24" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(667, 222)
+
+[node name="Bush25" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1157, -99)
+
+[node name="Bush26" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1341, -96)
+
+[node name="Bush27" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1160, 151)
+
+[node name="Bush28" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1346, 151)
+
+[node name="Bush29" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1106, -96)
+
+[node name="Bush30" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1103, -35)
+
+[node name="Bush31" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1101, 24)
+
+[node name="Bush32" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1101, 80)
+
+[node name="Bush33" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1101, 149)
+
+[node name="Bush34" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1400, -101)
+
+[node name="Bush35" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1403, -28)
+
+[node name="Bush36" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1407, 31)
+
+[node name="Bush37" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1400, 156)
+
+[node name="Bush38" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1405, 90)
+
+[node name="Bush39" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1396, -411)
+
+[node name="Bush40" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1442, -414)
+
+[node name="Bush41" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1148, -428)
+
+[node name="Bush42" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1479, 288)
+
+[node name="Tree5" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(1823, 1214)
+
+[node name="Bush43" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1937, 1318)
+
+[node name="Bush44" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1588, 1328)
+
+[node name="Bush45" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1398, 1325)
+
+[node name="Bush46" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1363, 1353)
+
+[node name="Tree6" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(-235, 1453)
+
+[node name="Tree7" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(-408, 1453)
+
+[node name="Tree8" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(-490, 1294)
+
+[node name="Tree9" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(-549, 1504)
+
+[node name="Tree10" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(-342, 1546)
+
+[node name="Bush47" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(-2, 1380)
+
+[node name="Bush48" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(-129, 1368)
+
+[node name="Bush49" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(-64, 1367)
+
+[node name="Tree24" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(276, 1449)
+
+[node name="Tree11" parent="Level" instance=ExtResource("7_ulgqs")]
+position = Vector2(-269, 1332)
+
 [node name="Link" type="CharacterBody2D" parent="Level"]
-position = Vector2(1100, 1100)
+position = Vector2(1150, 1100)
 script = ExtResource("3_odrmx")
 metadata/_edit_group_ = true
 
@@ -479,31 +730,11 @@ speed_scale = 3.0
 position = Vector2(579.5, 311)
 shape = SubResource("RectangleShape2D_ltcuk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Level"]
-position = Vector2(874, 439)
-scale = Vector2(1, 0.9948454)
-texture = ExtResource("5_nie0a")
+[node name="Rock" parent="Level" instance=ExtResource("9_ltcuk")]
+position = Vector2(-462, -355)
 
-[node name="Teleport1" type="Area2D" parent="Level"]
-position = Vector2(18, -32)
-script = ExtResource("6_odrmx")
-x = 580
-y = -1100
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport1"]
-position = Vector2(1698, 1551)
-shape = SubResource("RectangleShape2D_mmfff")
-
-[node name="Teleport2" type="Area2D" parent="Level"]
-script = ExtResource("6_odrmx")
-scene = "overworld2"
-x = -555
-y = -950
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
-position = Vector2(60.5, 1539.5)
-shape = SubResource("RectangleShape2D_odrmx")
+[node name="Rock2" parent="Level" instance=ExtResource("9_ltcuk")]
+position = Vector2(2119, 595.00006)
 
 [connection signal="body_entered" from="Level/Teleport1" to="Level/Teleport1" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]

@@ -1,15 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://u1tv40ggywmr"]
+[gd_scene load_steps=9 format=3 uid="uid://u1tv40ggywmr"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_yyxl4"]
-[ext_resource type="Texture2D" uid="uid://cjm10i4nwp5jk" path="res://Assets/Sprites/stump.png" id="2_wyk6m"]
+[ext_resource type="PackedScene" uid="uid://c1t6fl07ep3ue" path="res://Assets/Prefabs/stump.tscn" id="2_yyxl4"]
 [ext_resource type="Texture2D" uid="uid://xiaqm6fxwk4x" path="res://Assets/Sprites/tree.png" id="3_enqc8"]
 [ext_resource type="Script" uid="uid://bmlecx7ffgqgr" path="res://Assets/Scripts/link.gd" id="4_g6bq1"]
 [ext_resource type="SpriteFrames" uid="uid://xbjp0xhuvfcq" path="res://Assets/Sprites/link.tres" id="5_3nlw2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uhp12"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epcfu"]
-size = Vector2(286.66666, 283.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx45u"]
 size = Vector2(300, 331)
@@ -30,17 +27,8 @@ limit_bottom = -50
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
 shape = SubResource("SegmentShape2D_uhp12")
 
-[node name="Stump" type="StaticBody2D" parent="Level"]
+[node name="Stump" parent="Level" instance=ExtResource("2_yyxl4")]
 position = Vector2(515, -120)
-scale = Vector2(0.3, 0.3)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Level/Stump"]
-texture = ExtResource("2_wyk6m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Stump"]
-position = Vector2(10, -8.333336)
-shape = SubResource("RectangleShape2D_epcfu")
 
 [node name="Tree" type="StaticBody2D" parent="Level"]
 position = Vector2(714, 644)
