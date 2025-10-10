@@ -1,18 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://u1tv40ggywmr"]
+[gd_scene load_steps=7 format=3 uid="uid://u1tv40ggywmr"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_yyxl4"]
 [ext_resource type="PackedScene" uid="uid://c1t6fl07ep3ue" path="res://Assets/Prefabs/stump.tscn" id="2_yyxl4"]
 [ext_resource type="Texture2D" uid="uid://xiaqm6fxwk4x" path="res://Assets/Sprites/tree.png" id="3_enqc8"]
-[ext_resource type="Script" uid="uid://bmlecx7ffgqgr" path="res://Assets/Scripts/link.gd" id="4_g6bq1"]
-[ext_resource type="SpriteFrames" uid="uid://xbjp0xhuvfcq" path="res://Assets/Sprites/link.tres" id="5_3nlw2"]
+[ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="4_ygoak"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uhp12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx45u"]
 size = Vector2(300, 331)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ylo1"]
-size = Vector2(77, 84)
 
 [node name="Node2D" type="Node2D"]
 
@@ -654,18 +650,5 @@ texture = ExtResource("3_enqc8")
 position = Vector2(1, 16.5)
 shape = SubResource("RectangleShape2D_rx45u")
 
-[node name="Link" type="CharacterBody2D" parent="Level"]
-position = Vector2(-71, 377)
-script = ExtResource("4_g6bq1")
-metadata/_edit_group_ = true
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Level/Link"]
-position = Vector2(580, 305)
-scale = Vector2(0.3, 0.3)
-sprite_frames = ExtResource("5_3nlw2")
-animation = &"idle"
-speed_scale = 3.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Link"]
-position = Vector2(579.5, 311)
-shape = SubResource("RectangleShape2D_2ylo1")
+[node name="Link" parent="." instance=ExtResource("4_ygoak")]
+position = Vector2(8, 43)
