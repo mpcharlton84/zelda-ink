@@ -231,7 +231,7 @@ position = Vector2(21, -26)
 script = ExtResource("5_owmk3")
 scene = "castle"
 x = -600
-y = 1150
+y = 1165
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
 position = Vector2(-354, -747.5)

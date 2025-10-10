@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 400
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if TeleportParameters.x:
 		position.x = TeleportParameters.x
 	if TeleportParameters.y:
@@ -10,22 +11,49 @@ func _ready() -> void:
 	TeleportParameters.done = true
 
 func get_input():
+
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
+	
+	var animation_direction = "idle"
+	var animation_flipped = false
 	
 	if Input.is_action_pressed("down"):
-		$Sprite.play("walk_down")
+		animation_direction = "down"
+		animation_flipped = false
 	elif Input.is_action_pressed("up"):
-		$Sprite.play("walk_up")
+		animation_direction = "up"
+		animation_flipped = false
 	elif Input.is_action_pressed("right"):
-		$Sprite.play("walk_right")
-		$Sprite.flip_h = false
+		animation_direction = "right"
+		animation_flipped = false
 	elif Input.is_action_pressed("left"):
-		$Sprite.play("walk_right")
-		$Sprite.flip_h = true
-	else:
-		$Sprite.play("idle")
-		$Sprite.flip_h = false
+		animation_direction = "right"
+		animation_flipped = true
+	
+	if Input.is_action_just_pressed("sword") && Parameters.hasSword:
+		velocity = Vector2.ZERO
+		var original_animation = $Sprite.animation
+		
+		if animation_direction == "idle":
+			animation_direction = "down"
+		
+		$Sprite.play("attack_"+animation_direction)
+		$Sprite.flip_h = animation_flipped
+		
+		Parameters.attacking = true
+		await get_tree().create_timer(0.5).timeout
+		Parameters.attacking = false
+		return
+		
+	if Parameters.attacking:
+		return
+	
+	velocity = input_direction * speed
+	var animation_name = "idle"
+	if animation_direction != "idle":
+		animation_name = "walk_"+animation_direction
+	$Sprite.play(animation_name)
+	$Sprite.flip_h = animation_flipped
 	
 func _physics_process(delta: float) -> void:
 	get_input()

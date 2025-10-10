@@ -1,17 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://vpme3uksbp1r"]
+[gd_scene load_steps=5 format=3 uid="uid://vpme3uksbp1r"]
 
 [ext_resource type="Texture2D" uid="uid://dmjmt4qdbo38i" path="res://Assets/Sprites/bush.png" id="1_kuybb"]
+[ext_resource type="Script" uid="uid://dymvquaa528y7" path="res://Assets/Scripts/bush.gd" id="1_q37rs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q37rs"]
+size = Vector2(163.33334, 173.33331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tu6b"]
 size = Vector2(130, 133.33334)
 
-[node name="Bush" type="StaticBody2D"]
+[node name="Bush" type="Area2D"]
 scale = Vector2(0.3, 0.3)
+script = ExtResource("1_q37rs")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(4.9999967, -6.66667)
+shape = SubResource("RectangleShape2D_q37rs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("1_kuybb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(11.666664, -6.6666656)
 shape = SubResource("RectangleShape2D_4tu6b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

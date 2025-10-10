@@ -1,9 +1,10 @@
-[gd_scene load_steps=69 format=3 uid="uid://dn685o0nk8h5q"]
+[gd_scene load_steps=73 format=3 uid="uid://dn685o0nk8h5q"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_shv8r"]
 [ext_resource type="Texture2D" uid="uid://bycirljvksqxd" path="res://Assets/Maps/01d.png" id="2_nie0a"]
 [ext_resource type="Texture2D" uid="uid://do21dpc4jdjdi" path="res://Assets/Sprites/castle-bridge.png" id="5_nie0a"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="6_odrmx"]
+[ext_resource type="PackedScene" uid="uid://ddsxcsrkp3xu1" path="res://Assets/Prefabs/soldier.tscn" id="7_ltcuk"]
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="7_ulgqs"]
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="8_ltcuk"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="8_ulgqs"]
@@ -69,12 +70,16 @@ size = Vector2(37, 86)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_120u2"]
 size = Vector2(34, 88)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kniqr"]
+a = Vector2(644, -619)
+b = Vector2(613, -618)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xkhp6"]
 a = Vector2(450, -622)
-b = Vector2(641, -619)
+b = Vector2(496, -622)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kt7pq"]
-a = Vector2(654, -611)
+a = Vector2(653, -836)
 b = Vector2(652, 137)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55o3b"]
@@ -235,6 +240,14 @@ b = Vector2(1377, 499)
 a = Vector2(1373, 343)
 b = Vector2(1126, 339)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cm28p"]
+a = Vector2(649, -830)
+b = Vector2(477, -838)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ow4o2"]
+a = Vector2(475, -840)
+b = Vector2(472, -645)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmfff"]
 size = Vector2(697, 37)
 
@@ -325,6 +338,9 @@ shape = SubResource("RectangleShape2D_ip8xg")
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Level/BG"]
 position = Vector2(107, -597)
 shape = SubResource("RectangleShape2D_120u2")
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_kniqr")
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="Level/BG"]
 shape = SubResource("SegmentShape2D_xkhp6")
@@ -462,10 +478,11 @@ shape = SubResource("SegmentShape2D_b8pwp")
 [node name="CollisionShape2D62" type="CollisionShape2D" parent="Level/BG"]
 shape = SubResource("SegmentShape2D_t7x20")
 
-[node name="Bridge" type="Sprite2D" parent="Level"]
-position = Vector2(874, 439)
-scale = Vector2(1, 0.9948454)
-texture = ExtResource("5_nie0a")
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_cm28p")
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_ow4o2")
 
 [node name="Teleport1" type="Area2D" parent="Level"]
 position = Vector2(32, 3)
@@ -716,8 +733,26 @@ position = Vector2(-462, -355)
 [node name="Rock2" parent="Level" instance=ExtResource("9_ltcuk")]
 position = Vector2(2119, 595.00006)
 
+[node name="Soldier" parent="Level" instance=ExtResource("7_ltcuk")]
+position = Vector2(986, 220)
+max = 220.0
+min = -290.0
+speed = 2.0
+
+[node name="Soldier2" parent="Level" instance=ExtResource("7_ltcuk")]
+position = Vector2(700, 0)
+direction = "horizontal"
+max = 700.0
+min = 350.0
+speed = 2.0
+
 [node name="Link" parent="Level" instance=ExtResource("8_ulgqs")]
-position = Vector2(1149, 1130)
+position = Vector2(1150, 1122)
+
+[node name="Bridge" type="Sprite2D" parent="Level"]
+position = Vector2(874, 439)
+scale = Vector2(1, 0.9948454)
+texture = ExtResource("5_nie0a")
 
 [connection signal="body_entered" from="Level/Teleport1" to="Level/Teleport1" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
