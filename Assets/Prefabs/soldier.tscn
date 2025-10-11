@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://ddsxcsrkp3xu1"]
 
-[ext_resource type="Script" uid="uid://c1rtr2jtimx4x" path="res://Assets/Levels/soldier.gd" id="1_2cixh"]
+[ext_resource type="Script" uid="uid://c1rtr2jtimx4x" path="res://Assets/Scripts/soldier.gd" id="1_2cixh"]
 [ext_resource type="Texture2D" uid="uid://buic0ugqousnu" path="res://Assets/Sprites/soldier.png" id="2_dln1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtucb"]

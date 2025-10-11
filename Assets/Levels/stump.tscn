@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://u1tv40ggywmr"]
+[gd_scene load_steps=9 format=3 uid="uid://u1tv40ggywmr"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_yyxl4"]
+[ext_resource type="Texture2D" uid="uid://bat5k82qt2xxg" path="res://Assets/Maps/07d.png" id="2_wyk6m"]
 [ext_resource type="PackedScene" uid="uid://c1t6fl07ep3ue" path="res://Assets/Prefabs/stump.tscn" id="2_yyxl4"]
 [ext_resource type="Texture2D" uid="uid://xiaqm6fxwk4x" path="res://Assets/Sprites/tree.png" id="3_enqc8"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="4_ygoak"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uhp12"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yyxl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx45u"]
 size = Vector2(300, 331)
@@ -22,6 +25,16 @@ limit_bottom = -50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
 shape = SubResource("SegmentShape2D_uhp12")
+
+[node name="BG" type="StaticBody2D" parent="Level"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/BG"]
+position = Vector2(584, -170)
+scale = Vector2(1.6654867, 1.6654868)
+texture = ExtResource("2_wyk6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_yyxl4")
 
 [node name="Stump" parent="Level" instance=ExtResource("2_yyxl4")]
 position = Vector2(515, -120)
@@ -650,5 +663,5 @@ texture = ExtResource("3_enqc8")
 position = Vector2(1, 16.5)
 shape = SubResource("RectangleShape2D_rx45u")
 
-[node name="Link" parent="." instance=ExtResource("4_ygoak")]
-position = Vector2(8, 43)
+[node name="Link" parent="Level" instance=ExtResource("4_ygoak")]
+position = Vector2(-71, 368)

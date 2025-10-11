@@ -16,8 +16,8 @@ func _process(delta: float) -> void:
 		return
 	
 	if touching && Parameters.attacking:
-		($StaticBody2D.get_child(1) as CollisionShape2D).set_deferred("disabled", true)
-		var sprite2D = ($StaticBody2D.get_child(0) as Sprite2D)
+		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
+		
 		var t = load("res://Assets/Sprites/bush-stump.png")
-		sprite2D.texture = t;
+		$StaticBody2d/Sprite2D.texture = t;
 		destroyed = true

@@ -1,0 +1,240 @@
+[gd_scene load_steps=25 format=3 uid="uid://cch3qsg88jatj"]
+
+[ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_iir8p"]
+[ext_resource type="Texture2D" uid="uid://d0w7l7gytu2vt" path="res://Assets/Maps/05d.png" id="2_ki8s7"]
+[ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="3_4owir"]
+[ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="4_wbjqw"]
+[ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="5_pedxn"]
+[ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="6_ki8s7"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d2ymr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cgxxq"]
+a = Vector2(-10, 501)
+b = Vector2(1169, 502)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ykjdj"]
+a = Vector2(-9, 214)
+b = Vector2(115, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_am8hu"]
+a = Vector2(109, 208)
+b = Vector2(215, 314)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r5uka"]
+a = Vector2(217, 316)
+b = Vector2(333, 320)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_a1iui"]
+a = Vector2(430, 225)
+b = Vector2(330, 320)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nj4mn"]
+a = Vector2(435, -585)
+b = Vector2(430, 227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10vdh"]
+size = Vector2(231, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in5r3"]
+size = Vector2(226, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ock41"]
+size = Vector2(29, 254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx1sh"]
+size = Vector2(201, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4nye"]
+size = Vector2(25, 253)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yrl7"]
+size = Vector2(177, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vna7"]
+size = Vector2(274, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nrel"]
+size = Vector2(31, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmkwl"]
+size = Vector2(34, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4owir"]
+size = Vector2(52.50016, 337.50003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki8s7"]
+size = Vector2(66.2502, 230.00003)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Level" type="Area2D" parent="."]
+script = ExtResource("1_iir8p")
+follow = true
+limit_left = 0
+limit_right = 0
+limit_top = 450
+limit_bottom = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
+shape = SubResource("SegmentShape2D_d2ymr")
+
+[node name="BG" type="StaticBody2D" parent="Level"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/BG"]
+position = Vector2(578.00006, 49.000008)
+scale = Vector2(1.0153913, 1.0153913)
+texture = ExtResource("2_ki8s7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_cgxxq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_ykjdj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_am8hu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_r5uka")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_a1iui")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Level/BG"]
+shape = SubResource("SegmentShape2D_nj4mn")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(628.5, 271.5)
+shape = SubResource("RectangleShape2D_10vdh")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(626, 25.5)
+shape = SubResource("RectangleShape2D_in5r3")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(524.5, 135)
+shape = SubResource("RectangleShape2D_ock41")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(934.5, 271)
+shape = SubResource("RectangleShape2D_rx1sh")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(1018.5, 132.5)
+shape = SubResource("RectangleShape2D_e4nye")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(926.5, 26)
+shape = SubResource("RectangleShape2D_5yrl7")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(790, -384.5)
+shape = SubResource("RectangleShape2D_3vna7")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(1022.5, -138.5)
+shape = SubResource("RectangleShape2D_6nrel")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Level/BG"]
+position = Vector2(1021, -68.5)
+shape = SubResource("RectangleShape2D_wmkwl")
+
+[node name="Tree" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(271, -1)
+
+[node name="Tree2" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(519, -545)
+
+[node name="Tree3" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(571, -521)
+
+[node name="Tree4" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(547, -405)
+
+[node name="Tree5" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(1014, -530)
+
+[node name="Tree6" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(1139, -453)
+
+[node name="Tree7" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(1017, -379)
+
+[node name="Bush" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(1023, -192)
+
+[node name="Bush2" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(1020, -107)
+
+[node name="Tree8" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(671, -155)
+
+[node name="Tree9" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(907, -152)
+
+[node name="Bush3" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(600, 98)
+
+[node name="Bush4" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(674, 191)
+
+[node name="Bush5" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(693, 114)
+
+[node name="Bush6" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(869, 104)
+
+[node name="Bush7" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(959, 86)
+
+[node name="Bush8" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(951, 169)
+
+[node name="Bush9" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(872, 185)
+
+[node name="Tree10" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(1162, -275)
+
+[node name="Tree11" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(1187, -104)
+
+[node name="Tree12" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(1157, 44)
+
+[node name="Tree13" parent="Level" instance=ExtResource("3_4owir")]
+position = Vector2(1179, 207)
+
+[node name="Link" parent="Level" instance=ExtResource("5_pedxn")]
+position = Vector2(500, 100)
+
+[node name="Teleport" type="Area2D" parent="Level"]
+position = Vector2(0.00012207031, 356)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("6_ki8s7")
+scene = "fountain"
+x = 485
+y = 80
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_4owir")
+
+[node name="Teleport2" type="Area2D" parent="Level"]
+position = Vector2(1147.9999, 321)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("6_ki8s7")
+scene = "cemetary"
+x = -500
+y = 100
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
+position = Vector2(23.125, 104.99991)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_ki8s7")
+
+[connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]

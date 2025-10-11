@@ -15,8 +15,8 @@ var link_size;
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	original_link_position = $Link.global_position	
-	level_size = $BG.get_child(0).texture.get_size()
-	link_size = $Link.get_child(0).sprite_frames.get_frame_texture("idle", 0).get_size()
+	level_size = $BG/Sprite2D.texture.get_size()
+	link_size = $Link/Sprite.sprite_frames.get_frame_texture("idle", 0).get_size()
 	position.x = $Link.position.x * -1
 	position.y = $Link.position.y * -1
 	
