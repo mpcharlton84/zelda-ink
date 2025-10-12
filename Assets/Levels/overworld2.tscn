@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="7_7lsgg"]
 [ext_resource type="PackedScene" uid="uid://c1t6fl07ep3ue" path="res://Assets/Prefabs/stump.tscn" id="8_nnfld"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="8_shd1b"]
-[ext_resource type="PackedScene" uid="uid://bebaucnm5mof8" path="res://Assets/Prefabs/rock.tscn" id="9_7lsgg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_shd1b"]
 a = Vector2(547, -35)
@@ -113,6 +112,9 @@ size = Vector2(29.5, 235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr7iu"]
 size = Vector2(223.5, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shd1b"]
+size = Vector2(486.66663, 103.333405)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lsgg"]
 size = Vector2(76.66684, 530.0001)
@@ -378,6 +380,19 @@ position = Vector2(-116, 245)
 [node name="Stump" parent="Level" instance=ExtResource("8_nnfld")]
 position = Vector2(57, 38)
 
+[node name="Teleport5" type="Area2D" parent="Level"]
+position = Vector2(57, 38)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("5_owmk3")
+scene = "lake"
+x = -1350
+y = -1775
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport5"]
+position = Vector2(-1053.3333, 1774.9999)
+shape = SubResource("RectangleShape2D_shd1b")
+
 [node name="Teleport4" type="Area2D" parent="Level"]
 position = Vector2(57, 38)
 scale = Vector2(0.3, 0.3)
@@ -389,12 +404,11 @@ y = -300
 position = Vector2(1975, -898.3334)
 shape = SubResource("RectangleShape2D_7lsgg")
 
-[node name="Rock" parent="Level" instance=ExtResource("9_7lsgg")]
-position = Vector2(-257, 552)
-
 [node name="Link" parent="Level" instance=ExtResource("8_shd1b")]
+position = Vector2(-830, 175)
 
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport5" to="Level/Teleport5" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport4" to="Level/Teleport4" method="_on_body_entered"]

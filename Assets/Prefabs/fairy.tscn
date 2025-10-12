@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk5c7m4i0k8y8"]
+
+[ext_resource type="Script" uid="uid://c1rtr2jtimx4x" path="res://Assets/Scripts/soldier.gd" id="1_523r5"]
+[ext_resource type="Texture2D" uid="uid://cvduw17c6wpf6" path="res://Assets/Sprites/fairy.png" id="2_y7a8x"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r8fek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_souby"]
+atlas = ExtResource("2_y7a8x")
+region = Rect2(0, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80qea"]
+atlas = ExtResource("2_y7a8x")
+region = Rect2(200, 0, 200, 198)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt4xe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_souby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80qea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80qea"]
+size = Vector2(32, 34)
+
+[node name="Fairy" type="Area2D"]
+script = ExtResource("1_523r5")
+direction = "horizontal"
+max = 627.0
+min = 445.0
+speed = 2.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_r8fek")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(-2, 0)
+scale = Vector2(0.28282827, 0.28282827)
+sprite_frames = SubResource("SpriteFrames_tt4xe")
+autoplay = "default"
+frame_progress = 0.44934916
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_80qea")

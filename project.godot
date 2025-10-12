@@ -12,7 +12,7 @@ config_version=5
 
 config/name="ZeldaInk"
 config/version="0.1"
-run/main_scene="uid://cch3qsg88jatj"
+run/main_scene="uid://cagcnmie58fh"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
