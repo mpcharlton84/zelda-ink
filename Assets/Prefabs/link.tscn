@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://xbjp0xhuvfcq" path="res://Assets/Sprites/link.tres" id="2_ttegb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mmi0"]
-size = Vector2(73, 81)
+size = Vector2(48, 61)
 
 [node name="Link" type="CharacterBody2D"]
 script = ExtResource("1_r3ypq")
@@ -12,13 +12,13 @@ metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(580, 305)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 sprite_frames = ExtResource("2_ttegb")
 animation = &"idle"
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(579.5, 309.5)
+position = Vector2(579, 304.5)
 shape = SubResource("RectangleShape2D_3mmi0")
 
 [connection signal="ready" from="." to="." method="_on_ready"]

@@ -211,8 +211,8 @@ shape = SubResource("SegmentShape2D_b85bl")
 
 [node name="Teleport" type="Area2D" parent="Level"]
 script = ExtResource("5_owmk3")
-x = -675
-y = 550
+x = -500
+y = 125
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
 position = Vector2(655, 326)
@@ -220,8 +220,8 @@ shape = SubResource("RectangleShape2D_5w6xs")
 
 [node name="Teleport2" type="Area2D" parent="Level"]
 script = ExtResource("5_owmk3")
-x = -700
-y = 100
+x = -530
+y = -130
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
@@ -397,8 +397,8 @@ shape = SubResource("RectangleShape2D_shd1b")
 position = Vector2(57, 38)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("5_owmk3")
-x = -650
-y = -300
+x = -500
+y = -350
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport4"]
 position = Vector2(1975, -898.3334)

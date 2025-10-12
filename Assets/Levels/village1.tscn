@@ -387,10 +387,10 @@ position = Vector2(36, -503)
 position = Vector2(216, -537)
 
 [node name="Tree3" parent="Level" instance=ExtResource("6_1cp0r")]
-position = Vector2(399.99994, -470)
+position = Vector2(353, -505)
 
 [node name="Tree4" parent="Level" instance=ExtResource("6_1cp0r")]
-position = Vector2(575, -495)
+position = Vector2(493, -518)
 
 [node name="Tree5" parent="Level" instance=ExtResource("6_1cp0r")]
 position = Vector2(-19, -365)
@@ -402,10 +402,7 @@ position = Vector2(-9, -210)
 position = Vector2(1062, -455)
 
 [node name="Tree8" parent="Level" instance=ExtResource("6_1cp0r")]
-position = Vector2(1070, -223)
-
-[node name="Tree9" parent="Level" instance=ExtResource("6_1cp0r")]
-position = Vector2(1063, -19)
+position = Vector2(1175, -223)
 
 [node name="Tree10" parent="Level" instance=ExtResource("6_1cp0r")]
 position = Vector2(1103, 99)
@@ -426,16 +423,25 @@ position = Vector2(846, 577)
 position = Vector2(960, 635)
 
 [node name="Tree16" parent="Level" instance=ExtResource("6_1cp0r")]
-position = Vector2(1081, 579)
+position = Vector2(1159, 540)
 
 [node name="Tree17" parent="Level" instance=ExtResource("6_1cp0r")]
-position = Vector2(1041, 722)
-
-[node name="Link" parent="Level" instance=ExtResource("3_ydul0")]
-position = Vector2(475, 80)
+position = Vector2(1080, 675)
 
 [node name="Rock2" parent="Level" instance=ExtResource("5_m0h14")]
 position = Vector2(44, 532)
 scale = Vector2(0.5, 0.5)
+
+[node name="Tree9" parent="Level" instance=ExtResource("6_1cp0r")]
+position = Vector2(109, -402)
+
+[node name="Tree18" parent="Level" instance=ExtResource("6_1cp0r")]
+position = Vector2(60, -264)
+
+[node name="Tree19" parent="Level" instance=ExtResource("6_1cp0r")]
+position = Vector2(639, -472)
+
+[node name="Link" parent="Level" instance=ExtResource("3_ydul0")]
+position = Vector2(475, 80)
 
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]

@@ -489,10 +489,10 @@ shape = SubResource("SegmentShape2D_cm28p")
 shape = SubResource("SegmentShape2D_ow4o2")
 
 [node name="Teleport1" type="Area2D" parent="Level"]
-position = Vector2(32, 3)
+position = Vector2(32, -32)
 script = ExtResource("6_odrmx")
-x = 580
-y = -1100
+x = 165
+y = -765
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport1"]

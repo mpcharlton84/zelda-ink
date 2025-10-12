@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cesx2438sc3mc"]
+
+[ext_resource type="Texture2D" uid="uid://cjm10i4nwp5jk" path="res://Assets/Sprites/stump.png" id="1_yatix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epcfu"]
+size = Vector2(286.66666, 283.3333)
+
+[node name="Stump" type="StaticBody2D"]
+scale = Vector2(0.3, 0.3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yatix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, -8.333336)
+shape = SubResource("RectangleShape2D_epcfu")

@@ -1055,8 +1055,8 @@ shape = SubResource("RectangleShape2D_g1p03")
 [node name="Teleport" type="Area2D" parent="Level"]
 position = Vector2(457, -1492)
 script = ExtResource("9_by8s1")
-x = 185
-y = 820
+x = -50
+y = 275
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
