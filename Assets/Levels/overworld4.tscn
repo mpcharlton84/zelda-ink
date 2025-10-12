@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8mjn3hyrelfo"]
+[gd_scene load_steps=23 format=3 uid="uid://c8mjn3hyrelfo"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_fb8u1"]
 [ext_resource type="Texture2D" uid="uid://4vp4vrym2xvc" path="res://Assets/Maps/08d.png" id="2_dwq6h"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="3_q38f4"]
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="4_dwq6h"]
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="5_58nkh"]
+[ext_resource type="PackedScene" uid="uid://crcfm4ges8ayr" path="res://Assets/Prefabs/thing.tscn" id="5_tglh2"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="6_tglh2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_58nkh"]
@@ -192,6 +193,9 @@ position = Vector2(909, 398)
 [node name="Bush5" parent="Level" instance=ExtResource("5_58nkh")]
 position = Vector2(989, 488)
 
+[node name="Thing" parent="Level" instance=ExtResource("5_tglh2")]
+position = Vector2(273, 253)
+
 [node name="Link" parent="Level" instance=ExtResource("3_q38f4")]
 position = Vector2(-400, -712)
 
@@ -227,6 +231,9 @@ y = 360
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
 position = Vector2(-970.5, -401)
 shape = SubResource("RectangleShape2D_tglh2")
+
+[node name="Thing2" parent="Level" instance=ExtResource("5_tglh2")]
+position = Vector2(337, 411)
 
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]

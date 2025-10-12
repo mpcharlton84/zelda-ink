@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://crcfm4ges8ayr"]
+
+[ext_resource type="Texture2D" uid="uid://dcoxrktxmvajr" path="res://Assets/Sprites/thing.png" id="1_rajbr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol6lt"]
+atlas = ExtResource("1_rajbr")
+region = Rect2(0, 0, 299, 322)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux3f0"]
+atlas = ExtResource("1_rajbr")
+region = Rect2(299, 0, 299, 322)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqvic"]
+atlas = ExtResource("1_rajbr")
+region = Rect2(0, 322, 299, 322)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmmk4"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_ol6lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux3f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqvic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an5i5"]
+size = Vector2(106.666504, 86.666626)
+
+[node name="Thing" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vmmk4")
+autoplay = "default"
+frame_progress = 0.35784528
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.666748, 33.333374)
+shape = SubResource("RectangleShape2D_an5i5")

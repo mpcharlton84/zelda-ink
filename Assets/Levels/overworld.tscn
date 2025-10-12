@@ -493,6 +493,8 @@ position = Vector2(111, 215.00002)
 
 [node name="Bush15" parent="Level" instance=ExtResource("3_a777e")]
 position = Vector2(899, 226)
+isTunnel = true
+teleportMap = "asukave"
 
 [node name="Bush16" parent="Level" instance=ExtResource("3_a777e")]
 position = Vector2(905.0001, 264)
@@ -543,7 +545,7 @@ position = Vector2(-40.99994, -337.99994)
 position = Vector2(57.00006, -377.99994)
 
 [node name="Link" parent="Level" instance=ExtResource("8_a777e")]
-position = Vector2(-500, -350)
+position = Vector2(244, -86)
 
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]

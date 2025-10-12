@@ -1,17 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1t6fl07ep3ue"]
+[gd_scene load_steps=6 format=3 uid="uid://c1t6fl07ep3ue"]
 
+[ext_resource type="Script" uid="uid://bdl0tprwuncrr" path="res://Assets/Scripts/stump.gd" id="1_jlekc"]
 [ext_resource type="Texture2D" uid="uid://cjm10i4nwp5jk" path="res://Assets/Sprites/stump.png" id="1_s8gp4"]
+[ext_resource type="Texture2D" uid="uid://bwpclpl6twna6" path="res://Assets/Sprites/sword.png" id="3_ns174"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlekc"]
+size = Vector2(410, 420)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epcfu"]
 size = Vector2(286.66666, 283.3333)
 
-[node name="Stump" type="StaticBody2D"]
+[node name="Stump" type="Area2D"]
 scale = Vector2(0.3, 0.3)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_s8gp4")
+script = ExtResource("1_jlekc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.000006, -6.6666665)
+shape = SubResource("RectangleShape2D_jlekc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(10, -8.333336)
 shape = SubResource("RectangleShape2D_epcfu")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_s8gp4")
+
+[node name="Sword" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(9.999996, -110)
+scale = Vector2(1.4469697, 1.4469697)
+texture = ExtResource("3_ns174")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

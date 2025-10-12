@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://cagcnmie58fh"]
+[gd_scene load_steps=142 format=3 uid="uid://cagcnmie58fh"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_kxdcf"]
 [ext_resource type="Texture2D" uid="uid://b5nx7fuirqr37" path="res://Assets/Maps/11d.png" id="2_758bs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="5_v54oh"]
 [ext_resource type="PackedScene" uid="uid://dk5c7m4i0k8y8" path="res://Assets/Prefabs/fairy.tscn" id="6_ctj1v"]
 [ext_resource type="PackedScene" uid="uid://bxgl0j20yd5rn" path="res://Assets/Prefabs/pillar.tscn" id="7_ctj1v"]
+[ext_resource type="Texture2D" uid="uid://bt05k3c1gg8r6" path="res://Assets/Sprites/fairy-big.png" id="8_k3bnm"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="9_by8s1"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kxdcf"]
@@ -484,6 +485,38 @@ b = Vector2(-15.5, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms2qa"]
 size = Vector2(65, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls3nv"]
+atlas = ExtResource("8_k3bnm")
+region = Rect2(0, 0, 299, 322)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mgop"]
+atlas = ExtResource("8_k3bnm")
+region = Rect2(299, 0, 299, 322)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ogu2"]
+atlas = ExtResource("8_k3bnm")
+region = Rect2(0, 322, 299, 322)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_414ts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls3nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mgop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ogu2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2nxt"]
+size = Vector2(147.50006, 117.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_koehn"]
 size = Vector2(36, 327)
@@ -1027,6 +1060,21 @@ position = Vector2(812, -1146)
 
 [node name="Pillar23" parent="Level" instance=ExtResource("7_ctj1v")]
 position = Vector2(218, -1154)
+
+[node name="FairyBig" type="Area2D" parent="Level"]
+position = Vector2(-309, -971)
+scale = Vector2(0.4, 0.4)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/FairyBig"]
+sprite_frames = SubResource("SpriteFrames_414ts")
+autoplay = "default"
+frame_progress = 0.8190251
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/FairyBig"]
+position = Vector2(1.25, 63.75)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_l2nxt")
 
 [node name="Teleport3" type="Area2D" parent="Level"]
 position = Vector2(-687, -1582)

@@ -14,7 +14,6 @@ metadata/_edit_group_ = true
 position = Vector2(580, 305)
 scale = Vector2(0.2, 0.2)
 sprite_frames = ExtResource("2_ttegb")
-animation = &"idle"
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

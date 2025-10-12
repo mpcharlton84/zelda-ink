@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://fwlhi66somok"]
+
+[ext_resource type="Script" uid="uid://c1rtr2jtimx4x" path="res://Assets/Scripts/soldier.gd" id="1_7w713"]
+[ext_resource type="Texture2D" uid="uid://d3uqdyfq7w23g" path="res://Assets/Sprites/skeleton.png" id="2_jlq3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtucb"]
+size = Vector2(120, 148.57143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w713"]
+atlas = ExtResource("2_jlq3t")
+region = Rect2(0, 0, 173, 229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlq3t"]
+atlas = ExtResource("2_jlq3t")
+region = Rect2(173, 0, 173, 229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myo5g"]
+atlas = ExtResource("2_jlq3t")
+region = Rect2(346, 0, 173, 229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c6td"]
+atlas = ExtResource("2_jlq3t")
+region = Rect2(346, 229, 173, 229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdo7j"]
+atlas = ExtResource("2_jlq3t")
+region = Rect2(0, 229, 173, 229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tffn8"]
+atlas = ExtResource("2_jlq3t")
+region = Rect2(173, 229, 173, 229)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04t2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w713")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlq3t")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myo5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c6td")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdo7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tffn8")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6b2n"]
+size = Vector2(71.42857, 88.57142)
+
+[node name="Skeleton" type="Area2D"]
+script = ExtResource("1_7w713")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2.000001)
+scale = Vector2(0.35, 0.35)
+shape = SubResource("RectangleShape2D_rtucb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.35, 0.35)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_04t2f")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(9.999993, 27.14285)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_r6b2n")

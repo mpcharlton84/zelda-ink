@@ -14,7 +14,7 @@ func get_input():
 
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	
-	var animation_direction = "idle"
+	var animation_direction = "default"
 	var animation_flipped = false
 	
 	if Input.is_action_pressed("down"):
@@ -34,7 +34,7 @@ func get_input():
 		velocity = Vector2.ZERO
 		var original_animation = $Sprite.animation
 		
-		if animation_direction == "idle":
+		if animation_direction == "default":
 			animation_direction = "down"
 		
 		$Sprite.play("attack_"+animation_direction)
@@ -49,12 +49,17 @@ func get_input():
 		return
 	
 	velocity = input_direction * speed
-	var animation_name = "idle"
-	if animation_direction != "idle":
+	var animation_name = "default"
+	if animation_direction != "default":
 		animation_name = "walk_"+animation_direction
 	$Sprite.play(animation_name)
 	$Sprite.flip_h = animation_flipped
 	
 func _physics_process(delta: float) -> void:
+	
+	if $Sprite.animation == "get_sword":
+		await get_tree().create_timer(3).timeout
+		$Sprite.animation = "default"
+	
 	get_input()
 	move_and_slide()

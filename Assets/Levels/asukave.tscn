@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwam0ejffrw4f"]
+
+[ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="1_ona17"]
+[ext_resource type="Texture2D" uid="uid://d84bd7qkn7kn" path="res://Assets/Sprites/asuka.png" id="2_svfg5"]
+[ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="3_juggd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkhix"]
+size = Vector2(36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2trma"]
+atlas = ExtResource("2_svfg5")
+region = Rect2(0, 0, 68, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k41vy"]
+atlas = ExtResource("2_svfg5")
+region = Rect2(68, 0, 68, 136)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yi7q3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2trma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k41vy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82kvq"]
+size = Vector2(1151, 52)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Link" parent="." instance=ExtResource("1_ona17")]
+position = Vector2(15, 192)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(593, 268)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 19)
+shape = SubResource("RectangleShape2D_wkhix")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+sprite_frames = SubResource("SpriteFrames_yi7q3")
+
+[node name="Teleport" type="Area2D" parent="."]
+position = Vector2(433, 608)
+script = ExtResource("3_juggd")
+x = 244
+y = -86
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
+position = Vector2(142.5, 16)
+shape = SubResource("RectangleShape2D_82kvq")
+
+[connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

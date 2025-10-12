@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bg42vhi1vhjjh"]
+[gd_scene load_steps=50 format=3 uid="uid://bg42vhi1vhjjh"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_eywjj"]
 [ext_resource type="Texture2D" uid="uid://bq4b82g6pipe" path="res://Assets/Maps/06d.png" id="2_g1bw4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="6_iil7l"]
 [ext_resource type="PackedScene" uid="uid://dtcft2fxdvuos" path="res://Assets/Prefabs/tomb.tscn" id="6_w1ko8"]
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="6_xabnc"]
+[ext_resource type="PackedScene" uid="uid://fwlhi66somok" path="res://Assets/Prefabs/skeleton.tscn" id="8_xabnc"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_eywjj"]
 
@@ -465,6 +466,31 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
 position = Vector2(348.3333, 211.66663)
 shape = SubResource("RectangleShape2D_iil7l")
+
+[node name="Skeleton" parent="Level" instance=ExtResource("8_xabnc")]
+position = Vector2(950, 207)
+max = 280.0
+min = 56.0
+speed = 1.5
+
+[node name="Skeleton2" parent="Level" instance=ExtResource("8_xabnc")]
+position = Vector2(380, -15)
+direction = "horizontal"
+max = 465.0
+min = 185.0
+speed = 1.5
+
+[node name="Skeleton3" parent="Level" instance=ExtResource("8_xabnc")]
+position = Vector2(470, 150)
+direction = "horizontal"
+max = 470.0
+min = 320.0
+speed = 1.5
+
+[node name="Skeleton4" parent="Level" instance=ExtResource("8_xabnc")]
+position = Vector2(658, -6)
+max = 150.0
+speed = 1.5
 
 [node name="Link" parent="Level" instance=ExtResource("5_w1ko8")]
 position = Vector2(-416, 112)

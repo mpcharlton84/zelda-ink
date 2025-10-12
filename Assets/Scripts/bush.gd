@@ -1,23 +1,41 @@
 extends Area2D
 
-var touching:bool = false
+var isTouched:bool = false
 var destroyed:bool = false
+@export var isTunnel:bool = false
+@export var teleportMap:String = "asukave"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Link":
-		touching = true
+		isTouched = true
 
 func _on_body_exited(body: Node2D) -> void:
-	touching = false
+	isTouched = false
+
+func change_scene_safe():
+	TeleportParameters.done = false
+	TeleportParameters.x = 1
+	TeleportParameters.y = 1
+	get_tree().change_scene_to_file("res://Assets/Levels/"+teleportMap+".tscn")
 
 func _process(delta: float) -> void:
 	
+	if destroyed && isTunnel && isTouched:
+		call_deferred("change_scene_safe")
+		return
+		
 	if destroyed:
 		return
 	
-	if touching && Parameters.attacking:
+	if isTouched && Parameters.attacking:	
 		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 		
-		var t = load("res://Assets/Sprites/bush-stump.png")
-		$StaticBody2d/Sprite2D.texture = t;
+		var textureName = "bush-stump"
+		
+		if isTunnel:
+			textureName = "stairs"
+			isTouched = false
+		
+		var t = load("res://Assets/Sprites/"+textureName+".png")
+		$StaticBody2D/Sprite2D.texture = t;
 		destroyed = true

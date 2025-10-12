@@ -45,9 +45,6 @@ texture = ExtResource("2_wyk6m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/BG"]
 shape = SubResource("SegmentShape2D_yyxl4")
 
-[node name="Stump" parent="Level" instance=ExtResource("2_yyxl4")]
-position = Vector2(515, -120)
-
 [node name="Tree" type="StaticBody2D" parent="Level"]
 position = Vector2(714, 644)
 scale = Vector2(0.6, 0.6)
@@ -677,6 +674,10 @@ metadata/_edit_group_ = true
 position = Vector2(134.5, -23.00003)
 scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_enqc8")
+
+[node name="Stump" parent="Level" instance=ExtResource("2_yyxl4")]
+position = Vector2(505, -146)
+swordHolder = true
 
 [node name="Link" parent="Level" instance=ExtResource("4_ygoak")]
 position = Vector2(-850, 15)
