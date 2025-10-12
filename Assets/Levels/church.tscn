@@ -236,5 +236,8 @@ position = Vector2(23.125, 104.99991)
 scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_ki8s7")
 
+[node name="Bush10" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(161, -101)
+
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]

@@ -765,6 +765,10 @@ position = Vector2(874, 439)
 scale = Vector2(1, 0.9948454)
 texture = ExtResource("5_nie0a")
 
+[node name="Bush9" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1910, -708)
+isTunnel = true
+
 [connection signal="body_entered" from="Level/Teleport1" to="Level/Teleport1" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
