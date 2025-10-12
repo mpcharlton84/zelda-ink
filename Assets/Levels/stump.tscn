@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://u1tv40ggywmr"]
+[gd_scene load_steps=13 format=3 uid="uid://u1tv40ggywmr"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_yyxl4"]
 [ext_resource type="Texture2D" uid="uid://bat5k82qt2xxg" path="res://Assets/Maps/07d.png" id="2_wyk6m"]
 [ext_resource type="PackedScene" uid="uid://c1t6fl07ep3ue" path="res://Assets/Prefabs/stump.tscn" id="2_yyxl4"]
 [ext_resource type="Texture2D" uid="uid://xiaqm6fxwk4x" path="res://Assets/Sprites/tree.png" id="3_enqc8"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="4_ygoak"]
+[ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="5_wyk6m"]
+[ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="6_enqc8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uhp12"]
 
@@ -13,15 +15,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx45u"]
 size = Vector2(300, 331)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6bq1"]
+size = Vector2(231.00012, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enqc8"]
+size = Vector2(51.000015, 184.00003)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Level" type="Area2D" parent="."]
-position = Vector2(79, -325)
+position = Vector2(-374, -147)
 script = ExtResource("1_yyxl4")
 follow = true
-limit_left = 500
-limit_right = -400
-limit_bottom = -50
+limit_left = 350
+limit_right = -100
+limit_top = 900
+limit_bottom = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
 shape = SubResource("SegmentShape2D_uhp12")
@@ -100,7 +109,7 @@ position = Vector2(1, 16.5)
 shape = SubResource("RectangleShape2D_rx45u")
 
 [node name="Tree39" type="StaticBody2D" parent="Level"]
-position = Vector2(1478, 239)
+position = Vector2(1410, 128)
 scale = Vector2(0.6, 0.6)
 metadata/_edit_group_ = true
 
@@ -364,7 +373,7 @@ position = Vector2(1, 16.5)
 shape = SubResource("RectangleShape2D_rx45u")
 
 [node name="Tree6" type="StaticBody2D" parent="Level"]
-position = Vector2(1462, 612)
+position = Vector2(1471, 272)
 scale = Vector2(0.6, 0.6)
 metadata/_edit_group_ = true
 
@@ -603,65 +612,76 @@ texture = ExtResource("3_enqc8")
 position = Vector2(1, 16.5)
 shape = SubResource("RectangleShape2D_rx45u")
 
-[node name="Tree50" type="StaticBody2D" parent="Level"]
-position = Vector2(303, -417)
-scale = Vector2(0.6, 0.6)
+[node name="Tree3" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(1235, 518)
+
+[node name="Tree49" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(1497, 502)
+
+[node name="Tree55" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(1405, 624)
+
+[node name="Tree50" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(257, -347)
+
+[node name="Tree51" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(783, -338)
+
+[node name="Tree52" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(273, 84)
+
+[node name="Tree53" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(802, 54)
+
+[node name="Tree56" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(1485, 700)
+
+[node name="Teleport" type="Area2D" parent="Level"]
+position = Vector2(390.99997, 769)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("6_enqc8")
+scene = "overworld4"
+x = -50
+y = -710
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Level/Tree50"]
-texture = ExtResource("3_enqc8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
+position = Vector2(105.49996, 13.5)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_g6bq1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree50"]
-position = Vector2(1, 16.5)
-shape = SubResource("RectangleShape2D_rx45u")
-
-[node name="Tree51" type="StaticBody2D" parent="Level"]
-position = Vector2(100, -132.00003)
-scale = Vector2(0.6, 0.6)
+[node name="Teleport2" type="Area2D" parent="Level"]
+position = Vector2(-194.99994, 769.00006)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("6_enqc8")
+scene = "overworld4"
+x = -400
+y = -710
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Level/Tree51"]
-texture = ExtResource("3_enqc8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
+position = Vector2(105.49996, 13.5)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_g6bq1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree51"]
-position = Vector2(1, 16.5)
-shape = SubResource("RectangleShape2D_rx45u")
-
-[node name="Tree52" type="StaticBody2D" parent="Level"]
-position = Vector2(814, -325)
-scale = Vector2(0.6, 0.6)
+[node name="Teleport3" type="Area2D" parent="Level"]
+position = Vector2(-494.99997, 336.00003)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("6_enqc8")
+scene = "village1"
+x = 475
+y = 80
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Level/Tree52"]
-texture = ExtResource("3_enqc8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree52"]
-position = Vector2(1, 16.5)
-shape = SubResource("RectangleShape2D_rx45u")
-
-[node name="Tree53" type="StaticBody2D" parent="Level"]
-position = Vector2(955, 50)
-scale = Vector2(0.6, 0.6)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Level/Tree53"]
-texture = ExtResource("3_enqc8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree53"]
-position = Vector2(1, 16.5)
-shape = SubResource("RectangleShape2D_rx45u")
-
-[node name="Tree54" type="StaticBody2D" parent="Level"]
-position = Vector2(588, 233)
-scale = Vector2(0.6, 0.6)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Level/Tree54"]
-texture = ExtResource("3_enqc8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Tree54"]
-position = Vector2(1, 16.5)
-shape = SubResource("RectangleShape2D_rx45u")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
+position = Vector2(134.5, -23.00003)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_enqc8")
 
 [node name="Link" parent="Level" instance=ExtResource("4_ygoak")]
-position = Vector2(-71, 368)
+position = Vector2(-850, 15)
+scale = Vector2(0.99999994, 0.99999994)
+
+[connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]

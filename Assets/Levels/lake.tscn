@@ -303,7 +303,7 @@ a = Vector2(125, -1160)
 b = Vector2(125, -769)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_08wqt"]
-a = Vector2(126, -768)
+a = Vector2(123, -768)
 b = Vector2(-404, -761)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_maynr"]
@@ -479,11 +479,11 @@ a = Vector2(-16.5, 68)
 b = Vector2(28.5, 22)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vm3pm"]
-a = Vector2(-29.5, 27)
+a = Vector2(-28.5, 27)
 b = Vector2(-15.5, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms2qa"]
-size = Vector2(67, 60)
+size = Vector2(65, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_koehn"]
 size = Vector2(36, 327)
@@ -897,7 +897,7 @@ position = Vector2(237.5, -801)
 shape = SubResource("SegmentShape2D_vm3pm")
 
 [node name="CollisionShape2D120" type="CollisionShape2D" parent="Level/BG"]
-position = Vector2(239.5, -801)
+position = Vector2(240.5, -801)
 shape = SubResource("RectangleShape2D_ms2qa")
 
 [node name="Bush" parent="Level" instance=ExtResource("3_v54oh")]
@@ -1030,6 +1030,10 @@ position = Vector2(218, -1154)
 
 [node name="Teleport3" type="Area2D" parent="Level"]
 position = Vector2(-687, -1582)
+script = ExtResource("9_by8s1")
+scene = "overworld4"
+x = 465
+y = -315
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
@@ -1041,7 +1045,7 @@ position = Vector2(-687, -1582)
 script = ExtResource("9_by8s1")
 scene = "overworld2"
 x = -830
-y = 175
+y = 170
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
@@ -1060,7 +1064,8 @@ position = Vector2(48.5, -69.5)
 shape = SubResource("RectangleShape2D_ajgvu")
 
 [node name="Link" parent="Level" instance=ExtResource("3_kjbwu")]
-position = Vector2(-70, -1770)
+position = Vector2(-1575, -1385)
 
+[connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
