@@ -1,8 +1,45 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwam0ejffrw4f"]
+[gd_scene load_steps=19 format=3 uid="uid://bwam0ejffrw4f"]
 
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="1_ona17"]
+[ext_resource type="Texture2D" uid="uid://cbcjlh717fho0" path="res://Assets/Maps/cave2.png" id="1_svfg5"]
 [ext_resource type="Texture2D" uid="uid://d84bd7qkn7kn" path="res://Assets/Sprites/asuka.png" id="2_svfg5"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="3_juggd"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_juggd"]
+a = Vector2(771, 99)
+b = Vector2(531, 97)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wkhix"]
+a = Vector2(541, 99)
+b = Vector2(375, 245)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2trma"]
+a = Vector2(377, 244)
+b = Vector2(379, 394)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_k41vy"]
+a = Vector2(379, 390)
+b = Vector2(533, 540)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yi7q3"]
+a = Vector2(529, 540)
+b = Vector2(616, 543)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_82kvq"]
+a = Vector2(768, 99)
+b = Vector2(881, 195)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xherg"]
+a = Vector2(876, 400)
+b = Vector2(880, 196)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wlp48"]
+a = Vector2(728, 541)
+b = Vector2(876, 400)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gv2pe"]
+a = Vector2(670, 544)
+b = Vector2(729, 538)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkhix"]
 size = Vector2(36, 36)
@@ -30,33 +67,69 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82kvq"]
-size = Vector2(1151, 52)
+size = Vector2(51, 34)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Link" parent="." instance=ExtResource("1_ona17")]
-position = Vector2(15, 192)
+[node name="BG" type="StaticBody2D" parent="."]
+position = Vector2(-26, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+position = Vector2(577, 396)
+scale = Vector2(0.9850352, 0.98503524)
+texture = ExtResource("1_svfg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_juggd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_wkhix")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_2trma")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_k41vy")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_yi7q3")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_82kvq")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_xherg")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_wlp48")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_gv2pe")
+
+[node name="Link" parent="." instance=ExtResource("1_ona17")]
+position = Vector2(36, 204)
+
+[node name="Asuka" type="StaticBody2D" parent="."]
 position = Vector2(593, 268)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asuka"]
 position = Vector2(1, 19)
 shape = SubResource("RectangleShape2D_wkhix")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Asuka"]
 sprite_frames = SubResource("SpriteFrames_yi7q3")
+autoplay = "default"
 
 [node name="Teleport" type="Area2D" parent="."]
-position = Vector2(433, 608)
+position = Vector2(465, 608)
 script = ExtResource("3_juggd")
 x = 244
 y = -86
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
-position = Vector2(142.5, 16)
+position = Vector2(150.5, -20)
 shape = SubResource("RectangleShape2D_82kvq")
 
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

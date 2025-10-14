@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dn685o0nk8h5q"]
+[gd_scene load_steps=75 format=3 uid="uid://dn685o0nk8h5q"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_shv8r"]
 [ext_resource type="Texture2D" uid="uid://bycirljvksqxd" path="res://Assets/Maps/01d.png" id="2_nie0a"]
@@ -256,6 +256,9 @@ size = Vector2(253, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcuk"]
 size = Vector2(56, 144.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a0fm"]
+size = Vector2(40, 31.160583)
 
 [node name="Node2D" type="Node2D"]
 
@@ -735,6 +738,11 @@ position = Vector2(-129, 1368)
 [node name="Bush49" parent="Level" instance=ExtResource("8_ltcuk")]
 position = Vector2(-64, 1367)
 
+[node name="Bush9" parent="Level" instance=ExtResource("8_ltcuk")]
+position = Vector2(1910, -708)
+isTunnel = true
+teleportMap = "cave1"
+
 [node name="Tree24" parent="Level" instance=ExtResource("7_ulgqs")]
 position = Vector2(276, 1449)
 
@@ -757,18 +765,28 @@ max = 700.0
 min = 350.0
 speed = 2.0
 
+[node name="Teleport" type="Area2D" parent="Level"]
+position = Vector2(1398, -576)
+scale = Vector2(1, 0.9948454)
+script = ExtResource("6_odrmx")
+scene = "castle1"
+x = -57
+y = 160
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
+position = Vector2(28, -0.5025635)
+shape = SubResource("RectangleShape2D_8a0fm")
+
 [node name="Link" parent="Level" instance=ExtResource("8_ulgqs")]
-position = Vector2(-920, -650)
+position = Vector2(1335, -952)
 
 [node name="Bridge" type="Sprite2D" parent="Level"]
-position = Vector2(874, 439)
+position = Vector2(875, 438)
 scale = Vector2(1, 0.9948454)
 texture = ExtResource("5_nie0a")
-
-[node name="Bush9" parent="Level" instance=ExtResource("8_ltcuk")]
-position = Vector2(1910, -708)
-isTunnel = true
 
 [connection signal="body_entered" from="Level/Teleport1" to="Level/Teleport1" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]

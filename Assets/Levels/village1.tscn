@@ -444,4 +444,7 @@ position = Vector2(639, -472)
 [node name="Link" parent="Level" instance=ExtResource("3_ydul0")]
 position = Vector2(475, 80)
 
+[node name="Tree20" parent="Level" instance=ExtResource("6_1cp0r")]
+position = Vector2(741, 693)
+
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]

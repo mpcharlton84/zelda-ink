@@ -57,6 +57,9 @@ func get_input():
 	
 func _physics_process(delta: float) -> void:
 	
+	if !TeleportParameters.done:
+		return
+	
 	if $Sprite.animation == "get_sword":
 		await get_tree().create_timer(3).timeout
 		$Sprite.animation = "default"

@@ -1,0 +1,151 @@
+[gd_scene load_steps=21 format=3 uid="uid://xc6heq64q4o1"]
+
+[ext_resource type="Texture2D" uid="uid://bymlkm611ubtx" path="res://Assets/Maps/castle2.png" id="1_jora1"]
+[ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="2_p0xpy"]
+[ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="3_g1k51"]
+[ext_resource type="Texture2D" uid="uid://7o5d2354a2" path="res://Assets/Sprites/zelda.png" id="4_p0xpy"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jora1"]
+a = Vector2(693, 40)
+b = Vector2(491, 42)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p0xpy"]
+a = Vector2(491, 83)
+b = Vector2(489, 42)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_g1k51"]
+a = Vector2(449, 90)
+b = Vector2(489, 81)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6d3b1"]
+a = Vector2(451, 401)
+b = Vector2(451, 90)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ar82t"]
+a = Vector2(341, 405)
+b = Vector2(451, 401)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7lrw3"]
+a = Vector2(355, 622)
+b = Vector2(341, 407)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b8t3i"]
+a = Vector2(578, 628)
+b = Vector2(355, 620)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mc5jc"]
+a = Vector2(691, 84)
+b = Vector2(693, 39)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_olntf"]
+a = Vector2(691, 85)
+b = Vector2(739, 89)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ckh5t"]
+a = Vector2(743, 396)
+b = Vector2(737, 89)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_g6v0r"]
+a = Vector2(857, 397)
+b = Vector2(746, 397)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u6u8i"]
+a = Vector2(860, 621)
+b = Vector2(857, 399)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4yym3"]
+a = Vector2(631, 626)
+b = Vector2(862, 624)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk1ny"]
+size = Vector2(48, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1k51"]
+size = Vector2(104, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d3b1"]
+size = Vector2(194, 42)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BG" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+position = Vector2(577, 396)
+scale = Vector2(0.9850352, 0.98503524)
+texture = ExtResource("1_jora1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_jora1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_p0xpy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_g1k51")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_6d3b1")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_ar82t")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_7lrw3")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_b8t3i")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_mc5jc")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_olntf")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_ckh5t")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_g6v0r")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_u6u8i")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="BG"]
+shape = SubResource("SegmentShape2D_4yym3")
+
+[node name="Teleport" type="Area2D" parent="."]
+position = Vector2(589, 637)
+script = ExtResource("3_g1k51")
+scene = "castle1"
+x = 48
+y = -80
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
+position = Vector2(14, 6.5)
+shape = SubResource("RectangleShape2D_hk1ny")
+
+[node name="Zelda" type="Area2D" parent="."]
+position = Vector2(591, 113)
+scale = Vector2(0.4, 0.4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Zelda"]
+texture = ExtResource("4_p0xpy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Zelda"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zelda/StaticBody2D"]
+position = Vector2(7, 42)
+shape = SubResource("RectangleShape2D_g1k51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zelda"]
+position = Vector2(-2, 83)
+shape = SubResource("RectangleShape2D_6d3b1")
+
+[node name="Link" parent="." instance=ExtResource("2_p0xpy")]
+position = Vector2(22.000061, 274)
+scale = Vector2(0.99999994, 0.99999994)
+
+[connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

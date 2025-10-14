@@ -405,10 +405,12 @@ position = Vector2(1975, -898.3334)
 shape = SubResource("RectangleShape2D_7lsgg")
 
 [node name="Link" parent="Level" instance=ExtResource("8_shd1b")]
+position = Vector2(-127, -509)
 
 [node name="Bush8" parent="Level" instance=ExtResource("7_7lsgg")]
 position = Vector2(358, -472)
 isTunnel = true
+teleportMap = "cave2"
 
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
