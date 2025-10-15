@@ -6,7 +6,7 @@ var destroyed:bool = false
 @export var teleportMap:String = "asukave"
 
 func _ready() -> void:
-	if Parameters.foundTunnels.has(teleportMap):
+	if isTunnel && Parameters.foundTunnels.has(teleportMap):
 		destroyed = true
 		isTunnel = true
 		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)

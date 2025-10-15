@@ -492,10 +492,6 @@ position = Vector2(110, 177)
 [node name="Bush11" parent="Level" instance=ExtResource("3_a777e")]
 position = Vector2(111, 215.00002)
 
-[node name="Bush15" parent="Level" instance=ExtResource("3_a777e")]
-position = Vector2(899, 226)
-isTunnel = true
-
 [node name="Bush16" parent="Level" instance=ExtResource("3_a777e")]
 position = Vector2(905.0001, 264)
 
@@ -519,6 +515,10 @@ position = Vector2(313, -399)
 
 [node name="Bush23" parent="Level" instance=ExtResource("3_a777e")]
 position = Vector2(260, -347)
+
+[node name="Bush15" parent="Level" instance=ExtResource("3_a777e")]
+position = Vector2(899, 226)
+isTunnel = true
 
 [node name="Tree" parent="Level" instance=ExtResource("5_a777e")]
 position = Vector2(549.00006, -577.99994)
