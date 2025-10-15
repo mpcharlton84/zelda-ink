@@ -1,7 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://xc6heq64q4o1"]
+[gd_scene load_steps=23 format=3 uid="uid://xc6heq64q4o1"]
 
+[ext_resource type="Texture2D" uid="uid://bi6vnwj0ncbhj" path="res://Assets/Sprites/zeldaf-mad.png" id="1_6d3b1"]
 [ext_resource type="Texture2D" uid="uid://bymlkm611ubtx" path="res://Assets/Maps/castle2.png" id="1_jora1"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="2_p0xpy"]
+[ext_resource type="Script" uid="uid://bhltn13eklubp" path="res://Assets/Scripts/zelda.gd" id="3_6d3b1"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="3_g1k51"]
 [ext_resource type="Texture2D" uid="uid://7o5d2354a2" path="res://Assets/Sprites/zelda.png" id="4_p0xpy"]
 
@@ -68,6 +70,27 @@ size = Vector2(194, 42)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+top_level = true
+offset_left = 318.0
+offset_top = 151.0
+offset_right = 879.63965
+offset_bottom = 520.0
+texture = ExtResource("1_6d3b1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.071
+anchor_bottom = 0.062000003
+offset_left = 273.0
+offset_top = 74.0
+offset_right = 491.1236
+offset_bottom = 296.122
+autowrap_mode = 3
+
 [node name="BG" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="BG"]
@@ -129,16 +152,18 @@ shape = SubResource("RectangleShape2D_hk1ny")
 [node name="Zelda" type="Area2D" parent="."]
 position = Vector2(591, 113)
 scale = Vector2(0.4, 0.4)
+script = ExtResource("3_6d3b1")
 metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Zelda"]
-texture = ExtResource("4_p0xpy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Zelda"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zelda/StaticBody2D"]
 position = Vector2(7, 42)
 shape = SubResource("RectangleShape2D_g1k51")
+
+[node name="Sprite2D" type="Sprite2D" parent="Zelda/StaticBody2D"]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_p0xpy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zelda"]
 position = Vector2(-2, 83)
@@ -149,3 +174,5 @@ position = Vector2(22.000061, 274)
 scale = Vector2(0.99999994, 0.99999994)
 
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]
+[connection signal="body_entered" from="Zelda" to="Zelda" method="_on_body_entered"]
+[connection signal="body_exited" from="Zelda" to="Zelda" method="_on_body_exited"]

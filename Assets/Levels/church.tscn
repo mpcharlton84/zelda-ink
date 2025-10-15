@@ -194,6 +194,9 @@ position = Vector2(951, 169)
 [node name="Bush9" parent="Level" instance=ExtResource("4_wbjqw")]
 position = Vector2(872, 185)
 
+[node name="Bush10" parent="Level" instance=ExtResource("4_wbjqw")]
+position = Vector2(161, -101)
+
 [node name="Tree10" parent="Level" instance=ExtResource("3_4owir")]
 position = Vector2(1162, -275)
 
@@ -235,9 +238,6 @@ metadata/_edit_group_ = true
 position = Vector2(23.125, 104.99991)
 scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_ki8s7")
-
-[node name="Bush10" parent="Level" instance=ExtResource("4_wbjqw")]
-position = Vector2(161, -101)
 
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]

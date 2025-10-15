@@ -106,9 +106,6 @@ shape = SubResource("SegmentShape2D_wlp48")
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="BG"]
 shape = SubResource("SegmentShape2D_gv2pe")
 
-[node name="Link" parent="." instance=ExtResource("1_ona17")]
-position = Vector2(36, 204)
-
 [node name="Asuka" type="StaticBody2D" parent="."]
 position = Vector2(593, 268)
 metadata/_edit_group_ = true
@@ -131,5 +128,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
 position = Vector2(150.5, -20)
 shape = SubResource("RectangleShape2D_82kvq")
+
+[node name="Link" parent="." instance=ExtResource("1_ona17")]
+position = Vector2(36, 204)
 
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

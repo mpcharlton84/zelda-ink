@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyjg7r56mlhml"]
+
+[ext_resource type="Texture2D" uid="uid://dxs4gi4pcgdhm" path="res://Assets/Maps/map.png" id="1_8fygo"]
+[ext_resource type="Script" uid="uid://c50hx5e11i53e" path="res://Assets/Scripts/outro.gd" id="2_8fygo"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+texture = ExtResource("1_8fygo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.29177073, 0.9564883, 0, -0.9564883, 0.29177073, 0.159, 0.4, -1.011)
+script = ExtResource("2_8fygo")
+maxY = 2.5

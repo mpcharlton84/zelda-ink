@@ -5,6 +5,13 @@ var destroyed:bool = false
 @export var isTunnel:bool = false
 @export var teleportMap:String = "asukave"
 
+func _ready() -> void:
+	if Parameters.foundTunnels.has(teleportMap):
+		destroyed = true
+		isTunnel = true
+		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
+		$StaticBody2D/Sprite2D.texture = load("res://Assets/Sprites/stairs.png");
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = true
@@ -35,6 +42,7 @@ func _process(delta: float) -> void:
 		if isTunnel:
 			textureName = "stairs"
 			isTouched = false
+			Parameters.foundTunnels.append(teleportMap)
 		
 		var t = load("res://Assets/Sprites/"+textureName+".png")
 		$StaticBody2D/Sprite2D.texture = t;

@@ -24,7 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if TeleportParameters.done == false:
 		return	
-				
+
 	if follow:
 		var delta_x = $Link.get_position_delta().x
 		var delta_y = $Link.get_position_delta().y

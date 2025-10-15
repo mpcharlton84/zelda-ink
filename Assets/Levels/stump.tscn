@@ -683,6 +683,33 @@ swordHolder = true
 position = Vector2(-850, 15)
 scale = Vector2(0.99999994, 0.99999994)
 
+[node name="Tree54" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(678, 765)
+
+[node name="Tree57" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(-443, -52)
+
+[node name="Tree58" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(-25, -825)
+
+[node name="Tree59" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(888, -847)
+
+[node name="Tree60" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(29, -744)
+
+[node name="Tree61" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(1223, -808)
+
+[node name="Tree62" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(1431, -498)
+
+[node name="Tree63" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(220, 735)
+
+[node name="Tree64" parent="Level" instance=ExtResource("5_wyk6m")]
+position = Vector2(401, -950)
+
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]

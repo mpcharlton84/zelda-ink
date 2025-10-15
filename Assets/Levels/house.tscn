@@ -1,13 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://cdhoptqfblbiy"]
+[gd_scene load_steps=25 format=3 uid="uid://cdhoptqfblbiy"]
 
+[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_776wn"]
 [ext_resource type="Texture2D" uid="uid://cc3js3wbwrf8n" path="res://Assets/Maps/house.jpg" id="1_p2jj0"]
 [ext_resource type="Texture2D" uid="uid://5ssgb0clnt6j" path="res://Assets/Sprites/bed.png" id="2_776wn"]
 [ext_resource type="Texture2D" uid="uid://blqcwvtlgaicd" path="res://Assets/Sprites/pot.png" id="3_tqiut"]
 [ext_resource type="Texture2D" uid="uid://dp3qdegnwyukh" path="res://Assets/Sprites/stool.png" id="5_8r7wb"]
 [ext_resource type="Texture2D" uid="uid://bi7gvqc518jpa" path="res://Assets/Sprites/table-big.png" id="6_wh4eh"]
 [ext_resource type="Texture2D" uid="uid://bq1jhjxhum7el" path="res://Assets/Sprites/table-small.png" id="7_cpybx"]
+[ext_resource type="Script" uid="uid://g3dh1j2b66km" path="res://Assets/Scripts/text-container.gd" id="7_p2jj0"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="8_0vdpk"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="8_4qvvc"]
+[ext_resource type="Texture2D" uid="uid://cwvkdx3vgiv7y" path="res://Assets/Sprites/letter.png" id="8_776wn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx855"]
 size = Vector2(168, 442)
@@ -39,13 +42,40 @@ size = Vector2(458, 198)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xjsr"]
 size = Vector2(297.5, 155.00006)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqiut"]
+size = Vector2(203.3334, 236.66663)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snvx5"]
+size = Vector2(101, 154)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2jj0"]
 size = Vector2(331, 20)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+top_level = true
+offset_left = 241.0
+offset_top = 132.0
+offset_right = 902.0
+offset_bottom = 580.0
+texture = ExtResource("1_776wn")
+
+[node name="TextField" type="Label" parent="TextureRect"]
+top_level = true
+layout_mode = 0
+offset_left = 373.0
+offset_top = 251.0
+offset_right = 734.0
+offset_bottom = 433.0
+text = "
+"
+autowrap_mode = 3
+
 [node name="BG" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="BG"]
 position = Vector2(577.66626, 328.09378)
@@ -75,6 +105,7 @@ shape = SubResource("RectangleShape2D_2k2as")
 [node name="Bed" type="StaticBody2D" parent="."]
 position = Vector2(289, 185)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Bed"]
 scale = Vector2(0.3, 0.3)
@@ -88,6 +119,7 @@ shape = SubResource("RectangleShape2D_6wtde")
 position = Vector2(174, 244)
 scale = Vector2(0.3, 0.3)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Pot2"]
 texture = ExtResource("3_tqiut")
@@ -100,6 +132,7 @@ shape = SubResource("RectangleShape2D_oledj")
 position = Vector2(175, 197)
 scale = Vector2(0.3, 0.3)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Pot3"]
 texture = ExtResource("3_tqiut")
@@ -112,6 +145,7 @@ shape = SubResource("RectangleShape2D_oledj")
 position = Vector2(174, 149.00003)
 scale = Vector2(0.3, 0.3)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Pot"]
 texture = ExtResource("3_tqiut")
@@ -124,6 +158,7 @@ shape = SubResource("RectangleShape2D_oledj")
 position = Vector2(803, 207.00002)
 scale = Vector2(0.4, 0.4)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stool2"]
 scale = Vector2(0.99999994, 0.99999994)
@@ -137,6 +172,7 @@ shape = SubResource("RectangleShape2D_1t6mj")
 position = Vector2(808, 284)
 scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Table-Big"]
 texture = ExtResource("6_wh4eh")
@@ -149,6 +185,7 @@ shape = SubResource("RectangleShape2D_v2y2h")
 position = Vector2(810, 372)
 scale = Vector2(0.4, 0.4)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stool"]
 texture = ExtResource("5_8r7wb")
@@ -162,6 +199,7 @@ shape = SubResource("RectangleShape2D_1t6mj")
 position = Vector2(334, 388)
 scale = Vector2(0.4, 0.4)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Table-Small"]
 texture = ExtResource("7_cpybx")
@@ -171,17 +209,42 @@ position = Vector2(13.75, -5)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_5xjsr")
 
+[node name="Letter" type="Area2D" parent="."]
+position = Vector2(667, 439)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("7_p2jj0")
+texts = ["Dear Link,", "After watching you sleep for about three hours I started growing hungry", "I went to the shops but my favourite sandwich was sold out !", "Please get the three ingredients needed and make me my sandwich.", "If you don't know what those ingredients are, that means you don't really love me and so I hate you.", "If you need to cut stuff, know I planted the legendary sword in the woods to the west where Ganon kissed me for the first time. What a night.", "I'll see you in my secret underground lair under my father's castle. And DON'T FORGET THE SANDWICH !!!", "!!!!!", "xxx Zelda"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Letter"]
+position = Vector2(1.666748, 1.6668701)
+shape = SubResource("RectangleShape2D_tqiut")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Letter"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Letter/StaticBody2D"]
+texture = ExtResource("8_776wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letter/StaticBody2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_snvx5")
+
 [node name="Link" parent="." instance=ExtResource("8_4qvvc")]
-position = Vector2(-134, -27)
+position = Vector2(-290, -176)
 scale = Vector2(1.2, 1.2)
+metadata/_edit_lock_ = true
 
 [node name="Teleport" type="Area2D" parent="."]
 script = ExtResource("8_0vdpk")
 x = -163
 y = -133
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
 position = Vector2(580, 611)
 shape = SubResource("RectangleShape2D_p2jj0")
 
+[connection signal="body_entered" from="Letter" to="Letter" method="_on_body_entered"]
+[connection signal="body_exited" from="Letter" to="Letter" method="_on_body_exited"]
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

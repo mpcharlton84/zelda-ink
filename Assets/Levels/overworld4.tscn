@@ -196,6 +196,9 @@ position = Vector2(989, 488)
 [node name="Thing" parent="Level" instance=ExtResource("5_tglh2")]
 position = Vector2(273, 253)
 
+[node name="Thing2" parent="Level" instance=ExtResource("5_tglh2")]
+position = Vector2(337, 411)
+
 [node name="Link" parent="Level" instance=ExtResource("3_q38f4")]
 position = Vector2(-400, -712)
 
@@ -231,9 +234,6 @@ y = 360
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
 position = Vector2(-970.5, -401)
 shape = SubResource("RectangleShape2D_tglh2")
-
-[node name="Thing2" parent="Level" instance=ExtResource("5_tglh2")]
-position = Vector2(337, 411)
 
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]

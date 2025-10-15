@@ -128,7 +128,7 @@ shape = SubResource("SegmentShape2D_7l7dx")
 shape = SubResource("SegmentShape2D_kfyww")
 
 [node name="Link" parent="." instance=ExtResource("2_o2fv8")]
-position = Vector2(48, -80)
+position = Vector2(-55, 152)
 
 [node name="Teleport" type="Area2D" parent="."]
 position = Vector2(511, 524)

@@ -5,9 +5,13 @@ extends CharacterBody2D
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if TeleportParameters.x:
+		print("move x to " + str(TeleportParameters.x))
 		position.x = TeleportParameters.x
 	if TeleportParameters.y:
+		print("move y to " + str(TeleportParameters.y))
 		position.y = TeleportParameters.y
+	
+	await get_tree().create_timer(0.05).timeout
 	TeleportParameters.done = true
 
 func get_input():
@@ -57,12 +61,15 @@ func get_input():
 	
 func _physics_process(delta: float) -> void:
 	
-	if !TeleportParameters.done:
+	if !TeleportParameters.done || !Parameters.canMove:
 		return
 	
 	if $Sprite.animation == "get_sword":
+		Parameters.canMove = false
 		await get_tree().create_timer(3).timeout
-		$Sprite.animation = "default"
+		$Sprite.play("default")
+		await get_tree().create_timer(0.05).timeout
+		Parameters.canMove = true
 	
 	get_input()
 	move_and_slide()
