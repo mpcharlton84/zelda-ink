@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dp8wx5f02itx5"]
+[gd_scene load_steps=32 format=3 uid="uid://dp8wx5f02itx5"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_fuc1o"]
 [ext_resource type="Texture2D" uid="uid://c3b7hi5cdw6c4" path="res://Assets/Maps/09d.png" id="2_4uaa2"]
@@ -86,6 +86,9 @@ b = Vector2(566, 533)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4pftk"]
 a = Vector2(705, 533)
 b = Vector2(727, 533)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er2xp"]
+size = Vector2(227.85097, 33.29886)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nen8"]
 size = Vector2(54.62848, 127.0361)
@@ -328,14 +331,21 @@ position = Vector2(481, 378)
 [node name="Rock" parent="Level" instance=ExtResource("7_3kjrr")]
 position = Vector2(1160, -211)
 
-[node name="Rock2" parent="Level" instance=ExtResource("7_3kjrr")]
-position = Vector2(684, 631)
-
-[node name="Rock3" parent="Level" instance=ExtResource("7_3kjrr")]
-position = Vector2(584, 655)
-
 [node name="Link" parent="Level" instance=ExtResource("3_h77f5")]
-position = Vector2(485, 50)
+position = Vector2(70, 250)
+
+[node name="Teleport2" type="Area2D" parent="Level"]
+position = Vector2(647.5, 500.5)
+scale = Vector2(1.022599, 1.0210525)
+script = ExtResource("8_er2xp")
+scene = "village2"
+x = 40
+y = -1340
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
+position = Vector2(-20.536072, 143.47925)
+shape = SubResource("RectangleShape2D_er2xp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Level"]
 position = Vector2(647.5, 500.5)
@@ -354,4 +364,5 @@ y = 50
 position = Vector2(504.1748, -135.64435)
 shape = SubResource("RectangleShape2D_0nen8")
 
+[connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]

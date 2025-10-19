@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c3ypn7uxcoxpn"]
+[gd_scene load_steps=57 format=3 uid="uid://c3ypn7uxcoxpn"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_vjss2"]
 [ext_resource type="Texture2D" uid="uid://ctnw1ve2oq70v" path="res://Assets/Maps/10d.png" id="2_n1cdq"]
@@ -185,6 +185,9 @@ b = Vector2(369, -70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enq8k"]
 size = Vector2(23, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf0di"]
+size = Vector2(325.00006, 26.249939)
 
 [node name="Node2D" type="Node2D"]
 
@@ -376,10 +379,6 @@ metadata/_edit_group_ = true
 position = Vector2(16.5, 57)
 shape = SubResource("RectangleShape2D_enq8k")
 
-[node name="Rock" parent="Level" instance=ExtResource("5_m0h14")]
-position = Vector2(894, -299)
-scale = Vector2(0.5, 0.5)
-
 [node name="Tree" parent="Level" instance=ExtResource("6_1cp0r")]
 position = Vector2(36, -503)
 
@@ -441,10 +440,25 @@ position = Vector2(60, -264)
 [node name="Tree19" parent="Level" instance=ExtResource("6_1cp0r")]
 position = Vector2(639, -472)
 
-[node name="Link" parent="Level" instance=ExtResource("3_ydul0")]
-position = Vector2(475, 80)
-
 [node name="Tree20" parent="Level" instance=ExtResource("6_1cp0r")]
 position = Vector2(741, 693)
 
+[node name="Teleport2" type="Area2D" parent="Level"]
+position = Vector2(776, -496.99997)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("4_lxlw5")
+scene = "village2"
+x = 235
+y = 725
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
+position = Vector2(88.75, 3.124878)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_hf0di")
+
+[node name="Link" parent="Level" instance=ExtResource("3_ydul0")]
+position = Vector2(275, -735)
+
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
