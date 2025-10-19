@@ -1,11 +1,17 @@
-[gd_scene load_steps=118 format=3 uid="uid://dhcnqw4ouu4yn"]
+[gd_scene load_steps=138 format=3 uid="uid://dhcnqw4ouu4yn"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_oho7y"]
 [ext_resource type="Texture2D" uid="uid://bs6nt3ob23ynu" path="res://Assets/Maps/12d.png" id="2_jn87s"]
+[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="2_mw0qp"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="3_wabjq"]
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="4_typgm"]
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="5_k3nqh"]
+[ext_resource type="Script" uid="uid://c1rtr2jtimx4x" path="res://Assets/Scripts/soldier.gd" id="6_k3nqh"]
+[ext_resource type="Script" uid="uid://cr4h5s07obul5" path="res://Assets/Scripts/sandwich_maker.gd" id="6_syxov"]
 [ext_resource type="Texture2D" uid="uid://dtnfuout7c0h0" path="res://Assets/Sprites/village-sign.png" id="7_0co7d"]
+[ext_resource type="Texture2D" uid="uid://la3srdbw24s5" path="res://Assets/Sprites/villager1.png" id="7_7lm0e"]
+[ext_resource type="Texture2D" uid="uid://b1d28jq813ep8" path="res://Assets/Sprites/5.png" id="7_mw0qp"]
+[ext_resource type="Texture2D" uid="uid://dpab01g7mq0o8" path="res://Assets/Sprites/villager2.png" id="7_syxov"]
 [ext_resource type="PackedScene" uid="uid://bebaucnm5mof8" path="res://Assets/Prefabs/rock.tscn" id="8_7lm0e"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="8_o4o31"]
 
@@ -359,6 +365,87 @@ size = Vector2(108, 47)
 a = Vector2(853, 115)
 b = Vector2(851, 427)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyvx5"]
+size = Vector2(120.00003, 106.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfivb"]
+size = Vector2(89.99988, 96.666626)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb6jg"]
+size = Vector2(85, 132.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyvx5"]
+atlas = ExtResource("7_syxov")
+region = Rect2(0, 0, 126, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfivb"]
+atlas = ExtResource("7_syxov")
+region = Rect2(126, 0, 126, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5fmt"]
+atlas = ExtResource("7_syxov")
+region = Rect2(0, 0, 126, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6dl7"]
+atlas = ExtResource("7_syxov")
+region = Rect2(126, 0, 126, 201)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iy348"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyvx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfivb")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5fmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6dl7")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi31v"]
+size = Vector2(85.00003, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okovq"]
+size = Vector2(100, 143.33423)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnel2"]
+atlas = ExtResource("7_7lm0e")
+region = Rect2(0, 0, 134, 183)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yph2a"]
+atlas = ExtResource("7_7lm0e")
+region = Rect2(134, 0, 134, 183)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqqro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnel2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yph2a")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lkdi"]
+size = Vector2(86.66675, 66.666504)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gtdm"]
 size = Vector2(113.33325, 90)
 
@@ -382,10 +469,31 @@ limit_right = 50
 limit_top = 1100
 limit_bottom = -450
 
+[node name="TextureRect" type="TextureRect" parent="Level"]
+visible = false
+top_level = true
+offset_left = 228.0
+offset_top = 103.0
+offset_right = 949.0
+offset_bottom = 551.0
+texture = ExtResource("2_mw0qp")
+
+[node name="Label" type="Label" parent="Level/TextureRect"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 115.0
+offset_right = 542.0
+offset_bottom = 319.0
+text = "pouet"
+autowrap_mode = 3
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
 shape = SubResource("SegmentShape2D_uvw6m")
+metadata/_edit_lock_ = true
 
 [node name="BG" type="StaticBody2D" parent="Level"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/BG"]
 texture = ExtResource("2_jn87s")
@@ -805,351 +913,538 @@ shape = SubResource("SegmentShape2D_0kwpo")
 
 [node name="Tree" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(666, 1102)
+metadata/_edit_lock_ = true
 
 [node name="Tree2" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(964, 1090)
+metadata/_edit_lock_ = true
 
 [node name="Tree3" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(1071, 904)
+metadata/_edit_lock_ = true
 
 [node name="Tree4" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(1068, 1042)
+metadata/_edit_lock_ = true
 
 [node name="Tree5" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-721, 838)
+metadata/_edit_lock_ = true
 
 [node name="Tree6" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-781, 951)
+metadata/_edit_lock_ = true
 
 [node name="Tree7" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-640, 977)
+metadata/_edit_lock_ = true
 
 [node name="Tree8" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-772, 1093)
+metadata/_edit_lock_ = true
 
 [node name="Tree9" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-599, 1080)
+metadata/_edit_lock_ = true
 
 [node name="Tree10" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-470, 1130)
+metadata/_edit_lock_ = true
 
 [node name="Tree11" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-332, 1086)
+metadata/_edit_lock_ = true
 
 [node name="Tree12" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-210, 1127)
+metadata/_edit_lock_ = true
 
 [node name="Tree13" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-69, 1102)
+metadata/_edit_lock_ = true
 
 [node name="Tree14" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(63, 1127)
+metadata/_edit_lock_ = true
 
 [node name="Tree15" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(204, 1102)
+metadata/_edit_lock_ = true
 
 [node name="Tree16" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(330, 1124)
+metadata/_edit_lock_ = true
 
 [node name="Tree17" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(412, 1096)
+metadata/_edit_lock_ = true
 
 [node name="Tree18" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(540, 1140)
+metadata/_edit_lock_ = true
 
 [node name="Tree19" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1085, -684)
+metadata/_edit_lock_ = true
 
 [node name="Tree20" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1211, -539)
+metadata/_edit_lock_ = true
 
 [node name="Tree21" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1043, -542)
+metadata/_edit_lock_ = true
 
 [node name="Tree22" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1091, -388)
+metadata/_edit_lock_ = true
 
 [node name="Tree23" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1211, -242)
+metadata/_edit_lock_ = true
 
 [node name="Tree24" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1060, -245)
+metadata/_edit_lock_ = true
 
 [node name="Tree25" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1101, -134)
+metadata/_edit_lock_ = true
 
 [node name="Tree26" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1201, 4)
+metadata/_edit_lock_ = true
 
 [node name="Tree27" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1067, 4)
+metadata/_edit_lock_ = true
 
 [node name="Tree28" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1111, 132)
+metadata/_edit_lock_ = true
 
 [node name="Tree29" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1187, 268)
+metadata/_edit_lock_ = true
 
 [node name="Tree30" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1073, 270)
+metadata/_edit_lock_ = true
 
 [node name="Tree31" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1122, 375)
+metadata/_edit_lock_ = true
 
 [node name="Tree32" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1176, 501)
+metadata/_edit_lock_ = true
 
 [node name="Tree33" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1059, 504)
+metadata/_edit_lock_ = true
 
 [node name="Tree34" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1116, 609)
+metadata/_edit_lock_ = true
 
 [node name="Tree35" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1202, 760)
+metadata/_edit_lock_ = true
 
 [node name="Tree36" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1056, 772)
+metadata/_edit_lock_ = true
 
 [node name="Tree37" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(818, 678)
+metadata/_edit_lock_ = true
 
 [node name="Tree38" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-275, -800)
+metadata/_edit_lock_ = true
 
 [node name="Tree39" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-954, -1133)
+metadata/_edit_lock_ = true
 
 [node name="Tree40" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1128, -1136)
+metadata/_edit_lock_ = true
 
 [node name="Tree41" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1048, -1059)
+metadata/_edit_lock_ = true
 
 [node name="Tree42" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1182, -1028)
+metadata/_edit_lock_ = true
 
 [node name="Tree43" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-1085, -942)
+metadata/_edit_lock_ = true
 
 [node name="Tree44" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-697, -1091)
+metadata/_edit_lock_ = true
 
 [node name="Tree45" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-526, -1088)
+metadata/_edit_lock_ = true
 
 [node name="Tree46" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-252, -1108)
+metadata/_edit_lock_ = true
 
 [node name="Tree47" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(-86, -1108)
+metadata/_edit_lock_ = true
 
 [node name="Tree48" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(79, -1108)
+metadata/_edit_lock_ = true
 
 [node name="Tree49" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(242, -1105)
+metadata/_edit_lock_ = true
 
 [node name="Tree50" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(413, -1105)
+metadata/_edit_lock_ = true
 
 [node name="Tree51" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(1045, -1129)
+metadata/_edit_lock_ = true
 
 [node name="Tree52" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(1131, -959)
+metadata/_edit_lock_ = true
 
 [node name="Tree53" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(910, -1132)
+metadata/_edit_lock_ = true
 
 [node name="Tree54" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(819, -1132)
+metadata/_edit_lock_ = true
 
 [node name="Tree55" parent="Level" instance=ExtResource("4_typgm")]
 position = Vector2(869, -995)
+metadata/_edit_lock_ = true
 
 [node name="Bush" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(1009, -388)
+metadata/_edit_lock_ = true
 
 [node name="Bush2" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(166, -704)
+metadata/_edit_lock_ = true
 
 [node name="Bush3" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(96, -857)
+metadata/_edit_lock_ = true
 
 [node name="Bush4" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-11, -852)
+metadata/_edit_lock_ = true
 
 [node name="Bush5" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(49, -798)
+metadata/_edit_lock_ = true
 
 [node name="Bush6" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(96, -743)
+metadata/_edit_lock_ = true
 
 [node name="Bush7" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-5, -748)
+metadata/_edit_lock_ = true
 
 [node name="Bush8" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(781, -134)
+metadata/_edit_lock_ = true
 
 [node name="Bush9" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(832, -134)
+metadata/_edit_lock_ = true
 
 [node name="Bush10" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(817, -84)
+metadata/_edit_lock_ = true
 
 [node name="Bush11" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(241, -603)
+metadata/_edit_lock_ = true
 
 [node name="Bush12" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-213, -608)
+metadata/_edit_lock_ = true
 
 [node name="Bush13" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-215, -639)
+metadata/_edit_lock_ = true
 
 [node name="Bush14" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-260, -613)
+metadata/_edit_lock_ = true
 
 [node name="Bush15" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-835, -440)
+metadata/_edit_lock_ = true
 
 [node name="Bush16" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-841, -398)
+metadata/_edit_lock_ = true
 
 [node name="Bush17" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-519, -398)
+metadata/_edit_lock_ = true
 
 [node name="Bush18" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-527, -357)
+metadata/_edit_lock_ = true
 
 [node name="Bush19" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-776, -1)
+metadata/_edit_lock_ = true
 
 [node name="Bush20" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-776, 64)
+metadata/_edit_lock_ = true
 
 [node name="Bush21" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-778, 134)
+metadata/_edit_lock_ = true
 
 [node name="Bush22" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-776, 211)
+metadata/_edit_lock_ = true
 
 [node name="Bush23" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-604, 1)
+metadata/_edit_lock_ = true
 
 [node name="Bush24" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-602, 77)
+metadata/_edit_lock_ = true
 
 [node name="Bush25" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-602, 157)
+metadata/_edit_lock_ = true
 
 [node name="Bush26" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-610, 230)
+metadata/_edit_lock_ = true
 
 [node name="Bush27" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-236, 432)
+metadata/_edit_lock_ = true
 
 [node name="Bush28" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(568, -198)
+metadata/_edit_lock_ = true
 
 [node name="Bush29" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(695, 416)
+metadata/_edit_lock_ = true
 
 [node name="Bush30" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(669, 427)
+metadata/_edit_lock_ = true
 
 [node name="Bush31" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(132, 185)
+metadata/_edit_lock_ = true
 
 [node name="Bush32" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(132, 250)
+metadata/_edit_lock_ = true
 
 [node name="Bush33" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(137, 305)
+metadata/_edit_lock_ = true
 
 [node name="Bush34" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(91, 214)
+metadata/_edit_lock_ = true
 
 [node name="Bush35" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(91, 274)
+metadata/_edit_lock_ = true
 
 [node name="Bush36" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-459, 839)
+metadata/_edit_lock_ = true
 
 [node name="Bush37" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-392, 847)
+metadata/_edit_lock_ = true
 
 [node name="Bush38" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-324, 844)
+metadata/_edit_lock_ = true
 
 [node name="Bush39" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-244, 844)
+metadata/_edit_lock_ = true
 
 [node name="Bush40" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(111, 606)
+metadata/_edit_lock_ = true
 
 [node name="Bush41" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-851, 642)
+metadata/_edit_lock_ = true
 
 [node name="Bush42" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-804, 632)
+metadata/_edit_lock_ = true
 
 [node name="Bush43" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-755, 650)
+metadata/_edit_lock_ = true
 
 [node name="Bush44" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-703, 634)
+metadata/_edit_lock_ = true
 
 [node name="Bush45" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-654, 655)
+metadata/_edit_lock_ = true
 
 [node name="Bush46" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-599, 634)
+metadata/_edit_lock_ = true
 
 [node name="Bush47" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-597, 686)
+metadata/_edit_lock_ = true
 
 [node name="Bush48" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-708, 686)
+metadata/_edit_lock_ = true
 
 [node name="Bush49" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-799, 696)
+metadata/_edit_lock_ = true
 
 [node name="Rock2" parent="Level" instance=ExtResource("8_7lm0e")]
 position = Vector2(-385, -1086)
 scale = Vector2(0.6, 0.6)
+metadata/_edit_lock_ = true
 
 [node name="Rock3" parent="Level" instance=ExtResource("8_7lm0e")]
 position = Vector2(1135, 638.99994)
+metadata/_edit_lock_ = true
 
 [node name="Rock4" parent="Level" instance=ExtResource("8_7lm0e")]
 position = Vector2(1156, 711)
+metadata/_edit_lock_ = true
 
 [node name="Rock" parent="Level" instance=ExtResource("8_7lm0e")]
 position = Vector2(-827.00006, -1132)
 scale = Vector2(0.6, 0.6)
+metadata/_edit_lock_ = true
 
 [node name="Bush51" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-550, 737)
+metadata/_edit_lock_ = true
 
 [node name="Bush54" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-601, 862)
+metadata/_edit_lock_ = true
 
 [node name="Bush52" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-600, 766)
+metadata/_edit_lock_ = true
 
 [node name="Bush53" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-553, 822)
+metadata/_edit_lock_ = true
 
 [node name="Bush50" parent="Level" instance=ExtResource("5_k3nqh")]
 position = Vector2(-549, 660)
+metadata/_edit_lock_ = true
+
+[node name="Villager3" type="Area2D" parent="Level"]
+position = Vector2(419.00003, 825)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("6_syxov")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/Villager3"]
+position = Vector2(-0.00012207031, 129.99988)
+shape = SubResource("RectangleShape2D_pyvx5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Villager3"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Villager3/StaticBody2D"]
+texture = ExtResource("7_mw0qp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Villager3/StaticBody2D"]
+position = Vector2(1.6662598, 38.333252)
+shape = SubResource("RectangleShape2D_hfivb")
+
+[node name="Villager2" type="Area2D" parent="Level"]
+position = Vector2(-687, 135.00002)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("6_k3nqh")
+max = 275.0
+min = -50.0
+speed = 3.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Villager2"]
+position = Vector2(2.5, 13.75)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_bb6jg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Villager2"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Villager2/StaticBody2D"]
+sprite_frames = SubResource("SpriteFrames_iy348")
+animation = &"walk_down"
+autoplay = "walk_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Villager2/StaticBody2D"]
+position = Vector2(2.5, 40)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_bi31v")
+
+[node name="Villager" type="Area2D" parent="Level"]
+position = Vector2(380.99997, -203)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("6_k3nqh")
+direction = "horizontal"
+max = 500.0
+min = 225.0
+speed = 3.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Villager"]
+position = Vector2(0, 8.33252)
+shape = SubResource("RectangleShape2D_okovq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Villager"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Villager/StaticBody2D"]
+sprite_frames = SubResource("SpriteFrames_rqqro")
+animation = &"walk_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Villager/StaticBody2D"]
+position = Vector2(6.666626, 40)
+shape = SubResource("RectangleShape2D_3lkdi")
 
 [node name="Link" parent="Level" instance=ExtResource("3_wabjq")]
 position = Vector2(40, -1340)
+metadata/_edit_lock_ = true
 
 [node name="Sign" type="StaticBody2D" parent="Level"]
 position = Vector2(813, 943)
 scale = Vector2(0.3, 0.3)
+metadata/_edit_lock_ = true
 
 [node name="VillageSign" type="Sprite2D" parent="Level/Sign"]
 scale = Vector2(3.3333333, 3.3333333)
@@ -1172,6 +1467,7 @@ scene = "fortune"
 x = 70
 y = 250
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport2"]
 position = Vector2(354.99976, -138.3335)
@@ -1185,10 +1481,13 @@ scene = "village1"
 x = 275
 y = -735
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
 position = Vector2(-228.33374, 18.332764)
 shape = SubResource("RectangleShape2D_sjypi")
 
+[connection signal="body_entered" from="Level/Villager3" to="Level/Villager3" method="_on_body_entered"]
+[connection signal="body_exited" from="Level/Villager3" to="Level/Villager3" method="_on_body_exited"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]

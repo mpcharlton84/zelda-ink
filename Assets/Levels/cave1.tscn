@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://0uept6sop7x1"]
+[gd_scene load_steps=18 format=3 uid="uid://0uept6sop7x1"]
 
 [ext_resource type="Texture2D" uid="uid://45mhjn78wfh1" path="res://Assets/Maps/cave1.png" id="1_oeeqm"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="2_vfa4i"]
+[ext_resource type="Texture2D" uid="uid://b0i8rct605tdo" path="res://Assets/Sprites/meat.png" id="3_rnveu"]
+[ext_resource type="Script" uid="uid://b2l3vs8skusqx" path="res://Assets/Levels/meat.gd" id="3_vfa4i"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="4_ubstt"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_oeeqm"]
@@ -42,6 +44,12 @@ b = Vector2(735, 645)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk1ny"]
 size = Vector2(48, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfa4i"]
+size = Vector2(114, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxukr"]
+size = Vector2(64, 102)
 
 [node name="Node2D" type="Node2D"]
 
@@ -84,17 +92,39 @@ shape = SubResource("SegmentShape2D_mlj12")
 [node name="Teleport" type="Area2D" parent="."]
 position = Vector2(583, 581)
 script = ExtResource("2_vfa4i")
-scene = "castle"
-x = 1335
-y = -952
+scene = "lake"
+x = -830
+y = -150
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
 position = Vector2(14, 6.5)
 shape = SubResource("RectangleShape2D_hk1ny")
 
+[node name="Meat" type="Area2D" parent="."]
+position = Vector2(721, 200)
+scale = Vector2(0.41, 0.41)
+script = ExtResource("3_vfa4i")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meat"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vfa4i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Meat"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Meat/StaticBody2D"]
+texture = ExtResource("3_rnveu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meat/StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_lxukr")
+
 [node name="Link" parent="." instance=ExtResource("4_ubstt")]
-position = Vector2(18, 221)
+position = Vector2(20, 220)
 scale = Vector2(0.99999994, 0.99999994)
 
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]
+[connection signal="body_entered" from="Meat" to="Meat" method="_on_body_entered"]
+[connection signal="body_exited" from="Meat" to="Meat" method="_on_body_exited"]
+[connection signal="ready" from="Meat" to="Meat" method="_on_ready"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://obsihd8ofr6x"]
+[gd_scene load_steps=18 format=3 uid="uid://obsihd8ofr6x"]
 
 [ext_resource type="Texture2D" uid="uid://cbcjlh717fho0" path="res://Assets/Maps/cave2.png" id="1_5olds"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="2_1m8ae"]
+[ext_resource type="Script" uid="uid://6m23ikwe58a7" path="res://Assets/Scripts/salad.gd" id="3_5ijs4"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="3_mgxn3"]
+[ext_resource type="Texture2D" uid="uid://c1fq1qqtr4w24" path="res://Assets/Sprites/salad.png" id="4_fgt1u"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1m8ae"]
 a = Vector2(771, 99)
@@ -42,6 +44,12 @@ b = Vector2(729, 538)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk1ny"]
 size = Vector2(48, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70xef"]
+size = Vector2(117.5, 162.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1u52"]
+size = Vector2(100, 92.5)
 
 [node name="Node2D" type="Node2D"]
 
@@ -92,8 +100,33 @@ metadata/_edit_group_ = true
 position = Vector2(14, 6.5)
 shape = SubResource("RectangleShape2D_hk1ny")
 
+[node name="Salad" type="Area2D" parent="."]
+position = Vector2(609, 294)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_5ijs4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salad"]
+position = Vector2(1.25, 1.25)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_70xef")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Salad"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Salad/StaticBody2D"]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_fgt1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salad/StaticBody2D"]
+position = Vector2(-2.5, 3.75)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_e1u52")
+
 [node name="Link" parent="." instance=ExtResource("3_mgxn3")]
 position = Vector2(40, 191)
 scale = Vector2(0.99999994, 0.99999994)
 
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]
+[connection signal="body_entered" from="Salad" to="Salad" method="_on_body_entered"]
+[connection signal="body_exited" from="Salad" to="Salad" method="_on_body_exited"]
+[connection signal="ready" from="Salad" to="Salad" method="_on_ready"]

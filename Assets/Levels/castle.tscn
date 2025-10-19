@@ -740,7 +740,6 @@ position = Vector2(-64, 1367)
 
 [node name="Bush9" parent="Level" instance=ExtResource("8_ltcuk")]
 position = Vector2(1910, -708)
-isTunnel = true
 teleportMap = "cave1"
 
 [node name="Tree24" parent="Level" instance=ExtResource("7_ulgqs")]

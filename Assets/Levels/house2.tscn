@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://by2dt3rp2p6ff"]
+
+[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_7ror8"]
+[ext_resource type="Texture2D" uid="uid://cc3js3wbwrf8n" path="res://Assets/Maps/house.jpg" id="2_plnf8"]
+[ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="10_5qcyh"]
+[ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="11_7ltnm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx855"]
+size = Vector2(168, 442)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cw477"]
+size = Vector2(925, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7kgp"]
+size = Vector2(368, 61.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r54o8"]
+size = Vector2(41.5, 472)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k2as"]
+size = Vector2(379, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2jj0"]
+size = Vector2(331, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+top_level = true
+offset_left = 241.0
+offset_top = 132.0
+offset_right = 902.0
+offset_bottom = 580.0
+texture = ExtResource("1_7ror8")
+
+[node name="TextField" type="Label" parent="TextureRect"]
+top_level = true
+layout_mode = 0
+offset_left = 373.0
+offset_top = 251.0
+offset_right = 734.0
+offset_bottom = 433.0
+text = "
+"
+autowrap_mode = 3
+
+[node name="BG" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+position = Vector2(577.66626, 328.09378)
+scale = Vector2(0.43483153, 0.43483156)
+texture = ExtResource("2_plnf8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG"]
+position = Vector2(34, 331)
+shape = SubResource("RectangleShape2D_qx855")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BG"]
+position = Vector2(572.5, 54)
+shape = SubResource("RectangleShape2D_cw477")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BG"]
+position = Vector2(286, 578.25)
+shape = SubResource("RectangleShape2D_l7kgp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BG"]
+position = Vector2(1046.25, 339)
+shape = SubResource("RectangleShape2D_r54o8")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BG"]
+position = Vector2(849.5, 580.5)
+shape = SubResource("RectangleShape2D_2k2as")
+
+[node name="Link" parent="." instance=ExtResource("10_5qcyh")]
+position = Vector2(-120, 150)
+scale = Vector2(1.2, 1.2)
+
+[node name="Teleport" type="Area2D" parent="."]
+script = ExtResource("11_7ltnm")
+scene = "fortune"
+y = -50
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
+position = Vector2(580, 611)
+shape = SubResource("RectangleShape2D_p2jj0")
+
+[connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dp8wx5f02itx5"]
+[gd_scene load_steps=33 format=3 uid="uid://dp8wx5f02itx5"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_fuc1o"]
 [ext_resource type="Texture2D" uid="uid://c3b7hi5cdw6c4" path="res://Assets/Maps/09d.png" id="2_4uaa2"]
@@ -89,6 +89,9 @@ b = Vector2(727, 533)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_er2xp"]
 size = Vector2(227.85097, 33.29886)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4i0s"]
+size = Vector2(90.18787, 17.835037)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nen8"]
 size = Vector2(54.62848, 127.0361)
@@ -332,7 +335,7 @@ position = Vector2(481, 378)
 position = Vector2(1160, -211)
 
 [node name="Link" parent="Level" instance=ExtResource("3_h77f5")]
-position = Vector2(70, 250)
+position = Vector2(0, -50)
 
 [node name="Teleport2" type="Area2D" parent="Level"]
 position = Vector2(647.5, 500.5)
@@ -352,6 +355,19 @@ position = Vector2(647.5, 500.5)
 scale = Vector2(1.022599, 1.0210525)
 texture = ExtResource("6_42kvm")
 
+[node name="Teleport3" type="Area2D" parent="Level"]
+position = Vector2(541, 136)
+scale = Vector2(1.022599, 1.0210525)
+script = ExtResource("8_er2xp")
+scene = "house2"
+x = -120
+y = 150
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport3"]
+position = Vector2(35.093933, 1.0824738)
+shape = SubResource("RectangleShape2D_b4i0s")
+
 [node name="Teleport" type="Area2D" parent="Level"]
 position = Vector2(647.5, 500.5)
 scale = Vector2(1.022599, 1.0210525)
@@ -365,4 +381,5 @@ position = Vector2(504.1748, -135.64435)
 shape = SubResource("RectangleShape2D_0nen8")
 
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]

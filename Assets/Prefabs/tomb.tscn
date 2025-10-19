@@ -1,16 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtcft2fxdvuos"]
+[gd_scene load_steps=6 format=3 uid="uid://dtcft2fxdvuos"]
 
+[ext_resource type="Script" uid="uid://dggm6yqspdp6l" path="res://Assets/Prefabs/tomb.gd" id="1_bqrpo"]
 [ext_resource type="Texture2D" uid="uid://chl7lky1fcu0m" path="res://Assets/Sprites/tomb.png" id="1_grgdi"]
+[ext_resource type="Texture2D" uid="uid://c1oremp3hdr58" path="res://Assets/Sprites/cheese.png" id="3_aofp4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grgdi"]
+size = Vector2(173.33333, 176.66666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqrpo"]
 size = Vector2(143.33334, 143.33337)
 
-[node name="Tomb" type="StaticBody2D"]
+[node name="Tomb" type="Area2D"]
 scale = Vector2(0.3, 0.3)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_grgdi")
+script = ExtResource("1_bqrpo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.1789143e-06, 1.6666682)
+shape = SubResource("RectangleShape2D_grgdi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_grgdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1.6666565, 5)
 shape = SubResource("RectangleShape2D_bqrpo")
+
+[node name="Cheese" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(13.333324, -86.666664)
+scale = Vector2(0.4224806, 0.4224806)
+texture = ExtResource("3_aofp4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="ready" from="." to="." method="_on_ready"]

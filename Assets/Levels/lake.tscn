@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://cagcnmie58fh"]
+[gd_scene load_steps=143 format=3 uid="uid://cagcnmie58fh"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_kxdcf"]
 [ext_resource type="Texture2D" uid="uid://b5nx7fuirqr37" path="res://Assets/Maps/11d.png" id="2_758bs"]
@@ -523,6 +523,9 @@ size = Vector2(36, 327)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1p03"]
 size = Vector2(152, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmaad"]
+size = Vector2(57, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajgvu"]
 size = Vector2(117, 47)
@@ -1100,6 +1103,18 @@ metadata/_edit_group_ = true
 position = Vector2(-87, 18)
 shape = SubResource("RectangleShape2D_g1p03")
 
+[node name="Teleport4" type="Area2D" parent="Level"]
+position = Vector2(-272, 63)
+script = ExtResource("9_by8s1")
+scene = "cave1"
+x = 20
+y = 220
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport4"]
+position = Vector2(18.5, 12)
+shape = SubResource("RectangleShape2D_qmaad")
+
 [node name="Teleport" type="Area2D" parent="Level"]
 position = Vector2(457, -1492)
 script = ExtResource("9_by8s1")
@@ -1112,8 +1127,9 @@ position = Vector2(48.5, -69.5)
 shape = SubResource("RectangleShape2D_ajgvu")
 
 [node name="Link" parent="Level" instance=ExtResource("3_kjbwu")]
-position = Vector2(-1575, -1385)
+position = Vector2(-830, -150)
 
 [connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Teleport4" to="Level/Teleport4" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]

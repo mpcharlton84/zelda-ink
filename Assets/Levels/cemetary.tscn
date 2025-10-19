@@ -66,10 +66,10 @@ size = Vector2(29, 63)
 size = Vector2(32, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xe5c"]
-size = Vector2(33, 34)
+size = Vector2(33, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7eqss"]
-size = Vector2(31, 39)
+size = Vector2(31, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_il85d"]
 size = Vector2(37, 137)
@@ -227,11 +227,11 @@ position = Vector2(529, -24.5)
 shape = SubResource("RectangleShape2D_x1wac")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="Level/BG"]
-position = Vector2(529.5, 231)
+position = Vector2(529.5, 226)
 shape = SubResource("RectangleShape2D_5xe5c")
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="Level/BG"]
-position = Vector2(526.5, 303.5)
+position = Vector2(526.5, 310)
 shape = SubResource("RectangleShape2D_7eqss")
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="Level/BG"]
@@ -432,6 +432,7 @@ position = Vector2(435, 225)
 
 [node name="Tomb7" parent="Level" instance=ExtResource("6_w1ko8")]
 position = Vector2(607, 57)
+hasCheese = true
 
 [node name="Tomb8" parent="Level" instance=ExtResource("6_w1ko8")]
 position = Vector2(706, 60.000004)
