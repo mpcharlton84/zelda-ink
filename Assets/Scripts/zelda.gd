@@ -4,10 +4,12 @@ var isTouched:bool = false
 var endGame:bool = false
 
 func _on_body_entered(body: Node2D) -> void:
-	isTouched = true
+	if body.name == "Link":
+		isTouched = true
 
 func _on_body_exited(body: Node2D) -> void:
-	isTouched = false
+	if body.name == "Link":
+		isTouched = false
 
 func change_scene_safe():
 	get_tree().change_scene_to_file("res://Assets/Levels/outro.tscn")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://45mhjn78wfh1" path="res://Assets/Maps/cave1.png" id="1_oeeqm"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="2_vfa4i"]
 [ext_resource type="Texture2D" uid="uid://b0i8rct605tdo" path="res://Assets/Sprites/meat.png" id="3_rnveu"]
-[ext_resource type="Script" uid="uid://b2l3vs8skusqx" path="res://Assets/Levels/meat.gd" id="3_vfa4i"]
+[ext_resource type="Script" uid="uid://b2l3vs8skusqx" path="res://Assets/Scripts/meat.gd" id="3_vfa4i"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="4_ubstt"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_oeeqm"]

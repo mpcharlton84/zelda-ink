@@ -247,4 +247,5 @@ shape = SubResource("RectangleShape2D_p2jj0")
 
 [connection signal="body_entered" from="Letter" to="Letter" method="_on_body_entered"]
 [connection signal="body_exited" from="Letter" to="Letter" method="_on_body_exited"]
+[connection signal="ready" from="Letter" to="Letter" method="_on_ready"]
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

@@ -17,7 +17,8 @@ func _on_body_entered(body: Node2D) -> void:
 		isTouched = true
 
 func _on_body_exited(body: Node2D) -> void:
-	isTouched = false
+	if body.name == "Link":
+		isTouched = false
 
 func change_scene_safe():
 	TeleportParameters.done = false

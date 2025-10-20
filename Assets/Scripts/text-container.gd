@@ -4,15 +4,22 @@ extends Area2D
 var isTouched: bool = false
 var currentText: int = 0
 
-func _on_body_entered(body: Node2D) -> void:
-	isTouched = true
-
-func _on_body_exited(body: Node2D) -> void:
+func _on_ready() -> void:
 	isTouched = false
 
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Link":
+		isTouched = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.name == "Link":
+		isTouched = false
+
 func _process(delta: float) -> void:
+	
+	print(isTouched)
+	
 	if isTouched && Input.is_action_just_pressed("sword"):
-		
 		var panel = get_parent().get_child(0) as TextureRect;
 		var label = panel.get_child(0) as Label
 					

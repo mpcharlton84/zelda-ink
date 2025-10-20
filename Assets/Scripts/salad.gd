@@ -8,10 +8,12 @@ func _on_ready() -> void:
 		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 
 func _on_body_entered(body: Node2D) -> void:
-	isTouched = true
+	if body.name == "Link":
+		isTouched = true
 
 func _on_body_exited(body: Node2D) -> void:
-	isTouched = false
+	if body.name == "Link":
+		isTouched = false
 
 func _process(delta: float) -> void:
 

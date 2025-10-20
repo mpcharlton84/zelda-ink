@@ -11,4 +11,8 @@ func _process(delta: float) -> void:
 		var credits = get_parent().get_child(0)
 		if credits.position.y > -2200:
 			credits.position.y = credits.position.y-creditsSpeed
-			print(credits.position)
+	else:
+		change_scene_safe()
+
+func change_scene_safe():
+	get_tree().change_scene_to_file("res://Assets/Levels/start.tscn")

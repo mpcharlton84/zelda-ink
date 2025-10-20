@@ -11,7 +11,8 @@ func _on_body_entered(body: Node2D) -> void:
 		isTouched = true
 		
 func _on_body_exited(body: Node2D) -> void:
-	isTouched = false
+	if body.name == "Link":
+		isTouched = false
 
 func _process(delta: float) -> void:
 	if !swordHolder:
