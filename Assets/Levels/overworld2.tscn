@@ -381,6 +381,7 @@ position = Vector2(-116, 245)
 position = Vector2(358, -472)
 isTunnel = true
 teleportMap = "cave2"
+y = 200
 
 [node name="Stump" parent="Level" instance=ExtResource("8_nnfld")]
 position = Vector2(57, 38)

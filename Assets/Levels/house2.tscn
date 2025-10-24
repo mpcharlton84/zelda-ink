@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://by2dt3rp2p6ff"]
+[gd_scene load_steps=15 format=3 uid="uid://by2dt3rp2p6ff"]
 
 [ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_7ror8"]
 [ext_resource type="Texture2D" uid="uid://cc3js3wbwrf8n" path="res://Assets/Maps/house.jpg" id="2_plnf8"]
+[ext_resource type="Script" uid="uid://llu3oaub0ox" path="res://Assets/Scripts/book.gd" id="3_7fm45"]
+[ext_resource type="Texture2D" uid="uid://rt0v52jjk031" path="res://Assets/Sprites/book.png" id="5_t42ne"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="10_5qcyh"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="11_7ltnm"]
 
@@ -19,6 +21,12 @@ size = Vector2(41.5, 472)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k2as"]
 size = Vector2(379, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fm45"]
+size = Vector2(124, 166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjfkv"]
+size = Vector2(78, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2jj0"]
 size = Vector2(331, 20)
@@ -73,6 +81,25 @@ shape = SubResource("RectangleShape2D_r54o8")
 position = Vector2(849.5, 580.5)
 shape = SubResource("RectangleShape2D_2k2as")
 
+[node name="Book" type="Area2D" parent="."]
+position = Vector2(571, 335)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_7fm45")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Book"]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_7fm45")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Book"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Book/StaticBody2D"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_wjfkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Book/StaticBody2D"]
+texture = ExtResource("5_t42ne")
+
 [node name="Link" parent="." instance=ExtResource("10_5qcyh")]
 position = Vector2(-120, 150)
 scale = Vector2(1.2, 1.2)
@@ -87,4 +114,6 @@ metadata/_edit_lock_ = true
 position = Vector2(580, 611)
 shape = SubResource("RectangleShape2D_p2jj0")
 
+[connection signal="body_entered" from="Book" to="Book" method="_on_body_entered"]
+[connection signal="body_exited" from="Book" to="Book" method="_on_body_exited"]
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]

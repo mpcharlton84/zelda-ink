@@ -6,11 +6,10 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Link":
-		print("Teleport to " + scene)
 		TeleportParameters.done = false
 		TeleportParameters.x = x
 		TeleportParameters.y = y
-		call_deferred("change_scene_safe", scene)
+		call_deferred("change_scene_safe")
 
-func change_scene_safe(scene):
+func change_scene_safe():
 	get_tree().change_scene_to_file("res://Assets/Levels/"+scene+".tscn")

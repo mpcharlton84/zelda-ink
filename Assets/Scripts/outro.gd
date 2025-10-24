@@ -16,3 +16,6 @@ func _process(delta: float) -> void:
 
 func change_scene_safe():
 	get_tree().change_scene_to_file("res://Assets/Levels/start.tscn")
+
+func _on_ready() -> void:
+	MusicManager.PlayMusic("intro");

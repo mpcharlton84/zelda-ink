@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vpme3uksbp1r"]
+[gd_scene load_steps=9 format=3 uid="uid://vpme3uksbp1r"]
 
 [ext_resource type="Texture2D" uid="uid://dmjmt4qdbo38i" path="res://Assets/Sprites/bush.png" id="1_kuybb"]
 [ext_resource type="Script" uid="uid://dymvquaa528y7" path="res://Assets/Scripts/bush.gd" id="1_q37rs"]
+[ext_resource type="Texture2D" uid="uid://dh4nfgln4vhlh" path="res://Assets/Sprites/rupee.png" id="3_xpwwn"]
+[ext_resource type="Script" uid="uid://dbua6d4meq7vm" path="res://Assets/Scripts/rupee.gd" id="3_yeuhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q37rs"]
 size = Vector2(163.33334, 173.33331)
@@ -9,17 +11,26 @@ size = Vector2(163.33334, 173.33331)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tu6b"]
 size = Vector2(130, 133.33334)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clei5"]
+size = Vector2(146.66666, 139.99998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeuhq"]
+size = Vector2(53.333332, 80)
+
 [node name="Bush" type="Area2D"]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_q37rs")
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(4.9999967, -6.66667)
 shape = SubResource("RectangleShape2D_q37rs")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(0.8, 0.8)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("1_kuybb")
@@ -28,5 +39,24 @@ texture = ExtResource("1_kuybb")
 position = Vector2(11.666664, -6.6666656)
 shape = SubResource("RectangleShape2D_4tu6b")
 
+[node name="Rupee" type="Area2D" parent="."]
+visible = false
+script = ExtResource("3_yeuhq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rupee"]
+position = Vector2(3.3333333, -3.3333304)
+shape = SubResource("RectangleShape2D_clei5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rupee"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Rupee/StaticBody2D"]
+texture = ExtResource("3_xpwwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rupee/StaticBody2D"]
+position = Vector2(3.3333337, 0)
+shape = SubResource("RectangleShape2D_yeuhq")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Rupee" to="Rupee" method="_on_body_entered"]

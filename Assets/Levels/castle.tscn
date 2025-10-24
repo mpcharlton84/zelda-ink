@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dn685o0nk8h5q"]
+[gd_scene load_steps=76 format=3 uid="uid://dn685o0nk8h5q"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_shv8r"]
 [ext_resource type="Texture2D" uid="uid://bycirljvksqxd" path="res://Assets/Maps/01d.png" id="2_nie0a"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="8_ltcuk"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="8_ulgqs"]
 [ext_resource type="PackedScene" uid="uid://bebaucnm5mof8" path="res://Assets/Prefabs/rock.tscn" id="9_ltcuk"]
+[ext_resource type="PackedScene" uid="uid://b04o5xv81wqwt" path="res://Assets/Prefabs/lantern.tscn" id="10_8a0fm"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ulgqs"]
 a = Vector2(547, -35)
@@ -776,6 +777,9 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Teleport"]
 position = Vector2(28, -0.5025635)
 shape = SubResource("RectangleShape2D_8a0fm")
+
+[node name="lantern" parent="Level" instance=ExtResource("10_8a0fm")]
+position = Vector2(1929, -789)
 
 [node name="Link" parent="Level" instance=ExtResource("8_ulgqs")]
 position = Vector2(1335, -952)

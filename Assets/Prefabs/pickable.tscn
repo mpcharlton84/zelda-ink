@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://x7ufld6fbn1i"]
+
+[ext_resource type="Script" uid="uid://b2l3vs8skusqx" path="res://Assets/Scripts/pickable.gd" id="1_v2v2n"]
+[ext_resource type="Texture2D" uid="uid://b0i8rct605tdo" path="res://Assets/Sprites/meat.png" id="2_m8ipw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfa4i"]
+size = Vector2(114, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxukr"]
+size = Vector2(64, 102)
+
+[node name="Meat" type="Area2D"]
+scale = Vector2(0.41, 0.41)
+script = ExtResource("1_v2v2n")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vfa4i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_m8ipw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_lxukr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="ready" from="." to="." method="_on_ready"]

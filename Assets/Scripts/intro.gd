@@ -11,3 +11,8 @@ func _process(delta: float) -> void:
 
 func change_scene_safe():
 	get_tree().change_scene_to_file("res://Assets/Levels/house.tscn")
+
+
+func _on_ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	MusicManager.PlayMusic("wind")

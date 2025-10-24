@@ -5,10 +5,8 @@ extends CharacterBody2D
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if TeleportParameters.x:
-		print("move x to " + str(TeleportParameters.x))
 		position.x = TeleportParameters.x
 	if TeleportParameters.y:
-		print("move y to " + str(TeleportParameters.y))
 		position.y = TeleportParameters.y
 	
 	await get_tree().create_timer(0.05).timeout
@@ -36,7 +34,6 @@ func get_input():
 	
 	if Input.is_action_just_pressed("sword") && Parameters.hasSword:
 		velocity = Vector2.ZERO
-		var original_animation = $Sprite.animation
 		
 		if animation_direction == "default":
 			animation_direction = "down"
@@ -45,6 +42,7 @@ func get_input():
 		$Sprite.flip_h = animation_flipped
 		
 		Parameters.attacking = true
+		SoundManager.PlaySound("sword")
 		await get_tree().create_timer(0.5).timeout
 		Parameters.attacking = false
 		return
@@ -59,7 +57,7 @@ func get_input():
 	$Sprite.play(animation_name)
 	$Sprite.flip_h = animation_flipped
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if !TeleportParameters.done || !Parameters.canMove:
 		return

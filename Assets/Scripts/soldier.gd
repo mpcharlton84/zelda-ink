@@ -6,7 +6,7 @@ extends Area2D
 @export var min: float = 0.0
 @export var speed:float = 10
 
-func _process(delta: float) -> void:	
+func _process(_delta: float) -> void:	
 	if direction == "vertical":
 		
 		if position.y <= min:

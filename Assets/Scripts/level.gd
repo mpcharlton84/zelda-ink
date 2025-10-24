@@ -21,7 +21,7 @@ func _ready() -> void:
 	position.y = $Link.position.y * -1
 	Parameters.link = $Link
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if TeleportParameters.done == false:
 		return	
 

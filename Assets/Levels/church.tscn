@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cch3qsg88jatj"]
+[gd_scene load_steps=26 format=3 uid="uid://cch3qsg88jatj"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_iir8p"]
 [ext_resource type="Texture2D" uid="uid://d0w7l7gytu2vt" path="res://Assets/Maps/05d.png" id="2_ki8s7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="4_wbjqw"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="5_pedxn"]
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="6_ki8s7"]
+[ext_resource type="PackedScene" uid="uid://b04o5xv81wqwt" path="res://Assets/Prefabs/lantern.tscn" id="7_4owir"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_d2ymr"]
 
@@ -208,6 +209,10 @@ position = Vector2(1157, 44)
 
 [node name="Tree13" parent="Level" instance=ExtResource("3_4owir")]
 position = Vector2(1179, 207)
+
+[node name="lantern" parent="Level" instance=ExtResource("7_4owir")]
+position = Vector2(523, -258)
+burnName = "church"
 
 [node name="Link" parent="Level" instance=ExtResource("5_pedxn")]
 position = Vector2(500, 100)

@@ -14,7 +14,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !swordHolder:
 		return
 	
@@ -25,3 +25,4 @@ func _process(delta: float) -> void:
 		$StaticBody2D/Sword.visible = false
 		Parameters.hasSword = true
 		(Parameters.link.get_child(0) as AnimatedSprite2D).play("get_sword")
+		SoundManager.PlaySound("sword")

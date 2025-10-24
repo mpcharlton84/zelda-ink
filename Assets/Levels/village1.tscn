@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c3ypn7uxcoxpn"]
+[gd_scene load_steps=58 format=3 uid="uid://c3ypn7uxcoxpn"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_vjss2"]
 [ext_resource type="Texture2D" uid="uid://ctnw1ve2oq70v" path="res://Assets/Maps/10d.png" id="2_n1cdq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://61n3jycmsvgy" path="res://Assets/Scripts/teleport.gd" id="4_lxlw5"]
 [ext_resource type="PackedScene" uid="uid://bebaucnm5mof8" path="res://Assets/Prefabs/rock.tscn" id="5_m0h14"]
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="6_1cp0r"]
+[ext_resource type="PackedScene" uid="uid://b04o5xv81wqwt" path="res://Assets/Prefabs/lantern.tscn" id="6_5es25"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8b8yr"]
 
@@ -456,6 +457,10 @@ metadata/_edit_group_ = true
 position = Vector2(88.75, 3.124878)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_hf0di")
+
+[node name="lantern" parent="Level" instance=ExtResource("6_5es25")]
+position = Vector2(949, 128)
+burnName = "village1"
 
 [node name="Link" parent="Level" instance=ExtResource("3_ydul0")]
 position = Vector2(275, -735)

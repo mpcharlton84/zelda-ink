@@ -1,6 +1,7 @@
-[gd_scene load_steps=62 format=3 uid="uid://c6fkc12cdxaos"]
+[gd_scene load_steps=63 format=3 uid="uid://c6fkc12cdxaos"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_5u5rw"]
+[ext_resource type="Script" uid="uid://chi4tpypoy17a" path="res://Assets/Scripts/overworld.gd" id="1_a777e"]
 [ext_resource type="Texture2D" uid="uid://mm8y0q0kvgsc" path="res://Assets/Maps/00d.png" id="1_jpomn"]
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="3_a777e"]
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="5_a777e"]
@@ -204,6 +205,7 @@ size = Vector2(51.071445, 211.42853)
 size = Vector2(437.50006, 130.83322)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_a777e")
 
 [node name="Level" type="Area2D" parent="."]
 script = ExtResource("1_5u5rw")
@@ -547,6 +549,7 @@ position = Vector2(57.00006, -377.99994)
 [node name="Link" parent="Level" instance=ExtResource("8_a777e")]
 position = Vector2(244, -86)
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="Level/Teleport" to="Level/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport2" to="Level/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="Level/Teleport3" to="Level/Teleport3" method="_on_body_entered"]

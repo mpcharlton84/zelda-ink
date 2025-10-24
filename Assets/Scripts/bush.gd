@@ -4,6 +4,8 @@ var isTouched:bool = false
 var destroyed:bool = false
 @export var isTunnel:bool = false
 @export var teleportMap:String = "asukave"
+@export var x: int
+@export var y: int
 
 func _ready() -> void:
 	if isTunnel && Parameters.foundTunnels.has(teleportMap):
@@ -22,11 +24,11 @@ func _on_body_exited(body: Node2D) -> void:
 
 func change_scene_safe():
 	TeleportParameters.done = false
-	TeleportParameters.x = 1
-	TeleportParameters.y = 1
+	TeleportParameters.x = x
+	TeleportParameters.y = y
 	get_tree().change_scene_to_file("res://Assets/Levels/"+teleportMap+".tscn")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if destroyed && isTunnel && isTouched:
 		call_deferred("change_scene_safe")
@@ -48,3 +50,9 @@ func _process(delta: float) -> void:
 		var t = load("res://Assets/Sprites/"+textureName+".png")
 		$StaticBody2D/Sprite2D.texture = t;
 		destroyed = true
+		SoundManager.PlaySound("bush")
+		
+		if !isTunnel && randi() & 1 == 1:
+			$Rupee.visible = true
+		else:
+			$Rupee/StaticBody2D/CollisionShape2D.set_deferred("disabled", true)

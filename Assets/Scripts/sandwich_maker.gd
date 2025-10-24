@@ -10,8 +10,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = false
 
-func _process(delta: float) -> void:
-
+func _process(_delta: float) -> void:
 	var panel = (get_parent().get_child(0) as TextureRect)
 	
 	if !Parameters.canMove && Input.is_action_just_pressed("sword"):
@@ -22,15 +21,16 @@ func _process(delta: float) -> void:
 		
 		var text = "Hi, I'm the sandwich maker ! Bring me the three ingredients and I'll make Zelda's sandwich for you"
 		
-		if Parameters.hasSandwich:
+		if Parameters.inventory.has("sandwich"):
 			text = "You already have the sandwich, take it to Zelda below the castle !"
-		elif Parameters.hasForbiddenFruit && Parameters.hasFairyMeat && Parameters.hasSacredMushroom:
+		elif Parameters.inventory.size() == 3:
 			text = "You have all the ingredients, here, there's a sandwich! Yum!"
-			Parameters.hasSandwich = true
-		else:
-			text = "If you need help finding over ingredients, go see the Fortune Teller, she always helps me"
+			Parameters.inventory.append("sandwich");
+		elif Parameters.inventory.size() > 0:
+			text = "If you need help finding other ingredients, go see the Fortune Teller north of the village, she always helps me"
 		
 		var textField = (panel.get_child(0) as Label)
 		
 		textField.text = text
 		panel.visible = true
+		SoundManager.PlaySound("message")

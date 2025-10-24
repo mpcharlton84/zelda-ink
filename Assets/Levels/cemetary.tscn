@@ -1,6 +1,7 @@
-[gd_scene load_steps=50 format=3 uid="uid://bg42vhi1vhjjh"]
+[gd_scene load_steps=51 format=3 uid="uid://bg42vhi1vhjjh"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_eywjj"]
+[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_ysdl5"]
 [ext_resource type="Texture2D" uid="uid://bq4b82g6pipe" path="res://Assets/Maps/06d.png" id="2_g1bw4"]
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="3_c87r2"]
 [ext_resource type="PackedScene" uid="uid://bebaucnm5mof8" path="res://Assets/Prefabs/rock.tscn" id="4_iil7l"]
@@ -141,6 +142,24 @@ b = Vector2(825, -272)
 size = Vector2(163.33333, 443.33328)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+top_level = true
+offset_left = 268.0
+offset_top = 97.0
+offset_right = 934.0
+offset_bottom = 545.0
+texture = ExtResource("1_ysdl5")
+stretch_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 86.0
+offset_right = 591.0
+offset_bottom = 359.0
 
 [node name="Level" type="Area2D" parent="."]
 script = ExtResource("1_eywjj")

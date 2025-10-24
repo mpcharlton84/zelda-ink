@@ -15,7 +15,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	if isTouched && Input.is_action_just_pressed("sword"):
 		Parameters.hasSacredMushroom = true

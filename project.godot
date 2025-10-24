@@ -12,7 +12,7 @@ config_version=5
 
 config/name="ZeldaInk"
 config/version="0.1"
-run/main_scene="uid://cyjg7r56mlhml"
+run/main_scene="uid://b256sx7ncc4uo"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://cwv2h3kougub7"
 config/icon="res://icon.svg"
@@ -21,6 +21,8 @@ config/icon="res://icon.svg"
 
 TeleportParameters="*res://Assets/Scripts/teleport_parameters.gd"
 Parameters="*res://Assets/Scripts/parameters.gd"
+MusicManager="*res://Assets/Scripts/MusicManager.gd"
+SoundManager="*res://Assets/Scripts/SoundManager.gd"
 
 [display]
 

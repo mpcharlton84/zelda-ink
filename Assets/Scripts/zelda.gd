@@ -14,8 +14,7 @@ func _on_body_exited(body: Node2D) -> void:
 func change_scene_safe():
 	get_tree().change_scene_to_file("res://Assets/Levels/outro.tscn")
 
-func _process(delta: float) -> void:
-
+func _process(_delta: float) -> void:
 	var panel = (get_parent().get_child(0) as TextureRect)
 	
 	if endGame && Input.is_action_just_pressed("sword"):
@@ -28,15 +27,16 @@ func _process(delta: float) -> void:
 		
 		var text = "Well ? Where's my food? Come on, chop chop !"
 		
-		if Parameters.hasSandwich:
+		if Parameters.inventory.has("sandwich"):
 			text = "Oh my hero, thank you! You have saved my stomach (and your head). Great job, yay!"
 			panel.texture = load("res://Assets/Sprites/zeldaf-love.png")
 			endGame = true
-		elif Parameters.hasForbiddenFruit && Parameters.hasFairyMeat && Parameters.hasSacredMushroom:
+		elif Parameters.inventory.size() == 3:
 			text = "You have all the ingredients, what are you waiting for? Make me my sandwich !!"
 		
 		var textField = (panel.get_child(0) as Label)
 		
 		textField.text = text
 		panel.visible = true
+		SoundManager.PlaySound("message")
 	

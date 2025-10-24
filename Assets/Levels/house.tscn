@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cdhoptqfblbiy"]
+[gd_scene load_steps=26 format=3 uid="uid://cdhoptqfblbiy"]
 
 [ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_776wn"]
 [ext_resource type="Texture2D" uid="uid://cc3js3wbwrf8n" path="res://Assets/Maps/house.jpg" id="1_p2jj0"]
+[ext_resource type="Script" uid="uid://dj7g4ulwf447p" path="res://Assets/Scripts/house.gd" id="1_tqiut"]
 [ext_resource type="Texture2D" uid="uid://5ssgb0clnt6j" path="res://Assets/Sprites/bed.png" id="2_776wn"]
 [ext_resource type="Texture2D" uid="uid://blqcwvtlgaicd" path="res://Assets/Sprites/pot.png" id="3_tqiut"]
 [ext_resource type="Texture2D" uid="uid://dp3qdegnwyukh" path="res://Assets/Sprites/stool.png" id="5_8r7wb"]
@@ -52,6 +53,7 @@ size = Vector2(101, 154)
 size = Vector2(331, 20)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_tqiut")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -245,6 +247,7 @@ metadata/_edit_lock_ = true
 position = Vector2(580, 611)
 shape = SubResource("RectangleShape2D_p2jj0")
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="Letter" to="Letter" method="_on_body_entered"]
 [connection signal="body_exited" from="Letter" to="Letter" method="_on_body_exited"]
 [connection signal="ready" from="Letter" to="Letter" method="_on_ready"]

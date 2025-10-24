@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxs4gi4pcgdhm" path="res://Assets/Maps/map.png" id="1_8fygo"]
 [ext_resource type="Script" uid="uid://c50hx5e11i53e" path="res://Assets/Scripts/outro.gd" id="2_8fygo"]
-[ext_resource type="Texture2D" uid="uid://cl8a8yy03qjsc" path="res://Assets/credits.png" id="3_e1t3k"]
+[ext_resource type="Texture2D" uid="uid://cl8a8yy03qjsc" path="res://Assets/Screens/credits.png" id="3_e1t3k"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -24,3 +24,5 @@ texture = ExtResource("1_8fygo")
 transform = Transform3D(1, 0, 0, 0, 0.29177073, 0.9564883, 0, -0.9564883, 0.29177073, 0.159, 0.4, -1.011)
 script = ExtResource("2_8fygo")
 maxY = 2.5
+
+[connection signal="ready" from="Camera3D" to="Camera3D" method="_on_ready"]

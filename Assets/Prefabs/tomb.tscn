@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtcft2fxdvuos"]
 
-[ext_resource type="Script" uid="uid://dggm6yqspdp6l" path="res://Assets/Prefabs/tomb.gd" id="1_bqrpo"]
+[ext_resource type="Script" uid="uid://dggm6yqspdp6l" path="res://Assets/Scripts/tomb.gd" id="1_bqrpo"]
 [ext_resource type="Texture2D" uid="uid://chl7lky1fcu0m" path="res://Assets/Sprites/tomb.png" id="1_grgdi"]
 [ext_resource type="Texture2D" uid="uid://c1oremp3hdr58" path="res://Assets/Sprites/cheese.png" id="3_aofp4"]
 
