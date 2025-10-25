@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 		elif !Parameters.inventory.has("sandwich"):
 			text = "The book is open on page 61, and it is written\n\"The hero will come and search for a sandwich. He should go and visit the sandwich maker to the south of here.\""
 		else:
-			text = "The book is open on the last page, and it is written\n\"The hero will come and search for Zelda. Come on guy! You've got all the rest! Find her by yourself!\""
+			text = "The book is open on the last page, and it is written\n\"The hero will come and search for Zelda. Come on dude! You've got all the rest! Find her by yourself!\""
 		
 		var textField = (panel.get_child(0) as Label)
 		

@@ -12,10 +12,7 @@ func _process(delta: float) -> void:
 		if credits.position.y > -2200:
 			credits.position.y = credits.position.y-creditsSpeed
 	else:
-		change_scene_safe()
-
-func change_scene_safe():
-	get_tree().change_scene_to_file("res://Assets/Levels/start.tscn")
+		TeleportParameters.Teleport("start")
 
 func _on_ready() -> void:
 	MusicManager.PlayMusic("intro");

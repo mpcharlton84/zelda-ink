@@ -11,14 +11,11 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = false
 
-func change_scene_safe():
-	get_tree().change_scene_to_file("res://Assets/Levels/outro.tscn")
-
 func _process(_delta: float) -> void:
 	var panel = (get_parent().get_child(0) as TextureRect)
 	
 	if endGame && Input.is_action_just_pressed("sword"):
-		call_deferred("change_scene_safe")
+		TeleportParameters.Teleport("outro")
 	elif !Parameters.canMove && Input.is_action_just_pressed("sword"):
 		panel.visible = false
 		Parameters.canMove = true

@@ -5,13 +5,9 @@ extends Camera3D
 
 func _process(delta: float) -> void:
 	if position.y <= minY:
-		call_deferred("change_scene_safe")
+		TeleportParameters.Teleport("house")
 	else:
 		translate(transform.basis.y * speed * delta)
-
-func change_scene_safe():
-	get_tree().change_scene_to_file("res://Assets/Levels/house.tscn")
-
 
 func _on_ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

@@ -11,12 +11,9 @@ func _on_ready() -> void:
 	await get_tree().create_timer(2).timeout
 	animated = true
 
-func change_scene_safe():
-	get_tree().change_scene_to_file("res://Assets/Levels/intro.tscn")
-
 func _process(_delta: float) -> void:
 	if $TextureRect2.modulate.a >= 1 && !animated && Input.is_action_just_pressed("sword"):
-		change_scene_safe()
+		TeleportParameters.Teleport("intro")
 	
 	if !animated:
 		return;

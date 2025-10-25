@@ -7,16 +7,16 @@ var ObjectSound = preload("res://Assets/Sounds/object.wav");
 var RupeeSound = preload("res://Assets/Sounds/rupee.wav");
 var SwordSound = preload("res://Assets/Sounds/sword.wav");
 
-func PlaySound(name:String) -> void:
-	if name == 'break':
+func PlaySound(soundName:String) -> void:
+	if soundName == 'break':
 		stream = BreakSound
-	elif name == 'bush':
+	elif soundName == 'bush':
 		stream = BushSound
-	elif name == 'message':
+	elif soundName == 'message':
 		stream = MessageSound
-	elif name == 'object':
+	elif soundName == 'object':
 		stream = ObjectSound
-	elif name == 'rupee':
+	elif soundName == 'rupee':
 		stream = RupeeSound
 	else:
 		stream = SwordSound
