@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Zelda - Ink To The Past"
 config/version="1.0.1"
-run/main_scene="uid://c6fkc12cdxaos"
+run/main_scene="uid://b256sx7ncc4uo"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://cwv2h3kougub7"
 config/icon="uid://ddfxw8l62h4j8"
