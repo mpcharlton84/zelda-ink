@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vpme3uksbp1r"]
+[gd_scene load_steps=8 format=3 uid="uid://vpme3uksbp1r"]
 
 [ext_resource type="Texture2D" uid="uid://dmjmt4qdbo38i" path="res://Assets/Sprites/bush.png" id="1_kuybb"]
 [ext_resource type="Script" uid="uid://dymvquaa528y7" path="res://Assets/Scripts/bush.gd" id="1_q37rs"]
@@ -13,9 +13,6 @@ size = Vector2(130, 133.33334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clei5"]
 size = Vector2(146.66666, 139.99998)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeuhq"]
-size = Vector2(53.333332, 80)
 
 [node name="Bush" type="Area2D"]
 scale = Vector2(0.3, 0.3)
@@ -48,15 +45,10 @@ metadata/_edit_group_ = true
 position = Vector2(3.3333333, -3.3333304)
 shape = SubResource("RectangleShape2D_clei5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Rupee"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Rupee/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Rupee"]
 texture = ExtResource("3_xpwwn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rupee/StaticBody2D"]
-position = Vector2(3.3333337, 0)
-shape = SubResource("RectangleShape2D_yeuhq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="Rupee" to="Rupee" method="_on_body_entered"]
+[connection signal="body_exited" from="Rupee" to="Rupee" method="_on_body_entered"]

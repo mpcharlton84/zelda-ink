@@ -2,7 +2,7 @@ extends Node
 
 var link = null
 var canMove:bool = true
-var hasSword:bool = false
+var hasSword:bool = true
 var attacking:bool = false
 
 var foundTunnels = []

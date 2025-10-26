@@ -14,7 +14,7 @@ func Teleport(sceneName:String, destinationX:int = 0, destinationY:int = 0) -> v
 	call_deferred("change_scene_safe", sceneName)
 
 func change_scene_safe(sceneName):
-	get_tree().change_scene_to_file("res://Assets/Levels/"+sceneName+".tscn")
+	get_tree().change_scene_to_file("res://Assets/Scenes/"+sceneName+".tscn")
 	await get_tree().create_timer(0.1).timeout
 	TransitionScreen.fade_to_normal()
 	Parameters.canMove = true

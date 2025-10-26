@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Zelda - Ink To The Past"
-config/version="1.0.0"
-run/main_scene="uid://b256sx7ncc4uo"
+config/version="1.0.1"
+run/main_scene="uid://c6fkc12cdxaos"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://cwv2h3kougub7"
 config/icon="uid://ddfxw8l62h4j8"
@@ -23,10 +23,10 @@ TeleportParameters="*res://Assets/Scripts/_TeleportParameters.gd"
 Parameters="*res://Assets/Scripts/_Parameters.gd"
 MusicManager="*res://Assets/Scripts/_MusicManager.gd"
 SoundManager="*res://Assets/Scripts/_SoundManager.gd"
-TransitionScreen="*res://Assets/Levels/_TransitionScreen.tscn"
-DialogUI="*res://Assets/Levels/_DialogUI.tscn"
-PauseUi="*res://Assets/Levels/_PauseUI.tscn"
-MobileButtons="*res://Assets/Levels/_MobileButtons.tscn"
+TransitionScreen="*res://Assets/Scenes/_TransitionScreen.tscn"
+DialogUI="*res://Assets/Scenes/_DialogUI.tscn"
+PauseUi="*res://Assets/Scenes/_PauseUI.tscn"
+MobileButtons="*res://Assets/Scenes/_MobileButtons.tscn"
 
 [display]
 

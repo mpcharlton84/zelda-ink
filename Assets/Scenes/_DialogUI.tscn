@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://djr2uyi3u3ctq"]
 
-[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_7voku"]
-[ext_resource type="Script" uid="uid://cu4xkoqdhmi71" path="res://Assets/Scripts/_DialogUI.gd" id="1_eoorp"]
+[ext_resource type="Script" uid="uid://cu4xkoqdhmi71" path="res://Assets/Scripts/_DialogUI.gd" id="1_2657g"]
+[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="2_4wj50"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_eoorp")
+script = ExtResource("1_2657g")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -19,7 +19,7 @@ offset_left = 242.0
 offset_top = 133.0
 offset_right = 915.0
 offset_bottom = 505.0
-texture = ExtResource("1_7voku")
+texture = ExtResource("2_4wj50")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]

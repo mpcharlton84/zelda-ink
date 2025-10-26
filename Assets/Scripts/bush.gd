@@ -48,4 +48,4 @@ func _process(_delta: float) -> void:
 		if !isTunnel && randi() & 1 == 1:
 			$Rupee.visible = true
 		else:
-			$Rupee/StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
+			$Rupee/CollisionShape2D.set_deferred("disabled", true)
