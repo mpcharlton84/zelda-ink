@@ -23,17 +23,12 @@ func _process(_delta: float) -> void:
 	if !hasCheese:
 		return
 	
-	var panel = get_parent().get_parent().get_child(0) as TextureRect;
-
 	if !Parameters.canMove && Input.is_action_just_pressed("sword"):
-		panel.visible = false
+		DialogUI.HideDialog()
 		Parameters.canMove = true
 		hasCheese = false
-	elif isTouched && Input.is_action_just_pressed("sword"):
+	elif isTouched && Parameters.canMove && Input.is_action_just_pressed("sword"):
 		Parameters.canMove = false
 		Parameters.inventory.append("cheese")
 		$Cheese.visible = false
-		var label = panel.get_child(0) as Label
-		label.text = "You have found a bag full of old smelly meat. Yuk."			
-		panel.visible = true
-		SoundManager.PlaySound("object")
+		DialogUI.ShowDialog("You have found a bag full of old smelly meat. Yuk.", "object")

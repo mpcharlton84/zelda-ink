@@ -5,20 +5,17 @@ var isTouched: bool = false
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = true
-		print('touch')
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = false
-		print('untouch')
 
 func _process(_delta: float) -> void:
-	var panel = (get_parent().get_child(0) as TextureRect)
 	
 	if !Parameters.canMove && Input.is_action_just_pressed("sword"):
-		panel.visible = false
 		Parameters.canMove = true
-	elif isTouched && Input.is_action_just_pressed("sword"):
+		DialogUI.HideDialog()
+	elif isTouched && Parameters.canMove && Input.is_action_just_pressed("sword"):
 		Parameters.canMove = false
 		
 		var text = "The book is sealed."
@@ -36,9 +33,4 @@ func _process(_delta: float) -> void:
 		else:
 			text = "The book is open on the last page, and it is written\n\"The hero will come and search for Zelda. Come on dude! You've got all the rest! Find her by yourself!\""
 		
-		var textField = (panel.get_child(0) as Label)
-		
-		textField.text = text
-		panel.visible = true
-		
-		SoundManager.PlaySound("message")
+		DialogUI.ShowDialog(text, "message")

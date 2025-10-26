@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	if $StaticBody2D/Sword.visible && Parameters.hasSword:
 		$StaticBody2D/Sword.visible = false
 		
-	if isTouched && !Parameters.hasSword && Input.is_action_just_pressed("sword"):
+	if isTouched && Parameters.canMove && !Parameters.hasSword && Input.is_action_just_pressed("sword"):
 		$StaticBody2D/Sword.visible = false
 		Parameters.hasSword = true
 		(Parameters.link.get_child(0) as AnimatedSprite2D).play("get_sword")

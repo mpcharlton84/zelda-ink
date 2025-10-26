@@ -20,26 +20,23 @@ func _on_body_exited(body: Node2D) -> void:
 		isTouched = false
 
 func _process(_delta: float) -> void:
-
 	if !visible:
 		return;
 	
-	var panel = get_parent().get_child(0) as TextureRect;
-	
 	if !Parameters.canMove && Input.is_action_just_pressed("sword"):
-		panel.visible = false
+		DialogUI.HideDialog()
 		Parameters.canMove = true
 		visible = false
-	elif isTouched && Input.is_action_just_pressed("sword"):
+	elif isTouched && Parameters.canMove && Input.is_action_just_pressed("sword"):
 		Parameters.canMove = false
 		Parameters.inventory.append(objectName)
 		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 		
-		var label = panel.get_child(0) as Label
+		var text = "Weird"
+		
 		if objectName == "meat":
-			label.text = "You have found old fairy meat. Yum."
+			text = "You have found old fairy meat. Yum."
 		elif objectName == "salad":
-			label.text = "You have found some funny looking salad."
+			text = "You have found some funny looking salad."
 			
-		panel.visible = true
-		SoundManager.PlaySound("object")
+		DialogUI.ShowDialog(text, "object")

@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 	if destroyed:
 		return
 	
-	if isTouched && Parameters.attacking:	
+	if isTouched && Parameters.canMove && Parameters.attacking:	
 		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 		
 		var textureName = "bush-stump"

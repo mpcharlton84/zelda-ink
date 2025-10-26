@@ -33,7 +33,7 @@ func get_input():
 		animation_direction = "right"
 		animation_flipped = true
 			
-	if Input.is_action_just_pressed("sword") && Parameters.hasSword:
+	if Parameters.canMove && Input.is_action_just_pressed("sword") && Parameters.hasSword:
 		velocity = Vector2.ZERO
 		
 		if animation_direction == "default":

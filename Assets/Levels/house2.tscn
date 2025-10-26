@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://by2dt3rp2p6ff"]
+[gd_scene load_steps=14 format=3 uid="uid://by2dt3rp2p6ff"]
 
-[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_7ror8"]
 [ext_resource type="Texture2D" uid="uid://cc3js3wbwrf8n" path="res://Assets/Maps/house.jpg" id="2_plnf8"]
 [ext_resource type="Script" uid="uid://llu3oaub0ox" path="res://Assets/Scripts/book.gd" id="3_7fm45"]
 [ext_resource type="Texture2D" uid="uid://rt0v52jjk031" path="res://Assets/Sprites/book.png" id="5_t42ne"]
@@ -32,26 +31,6 @@ size = Vector2(78, 88)
 size = Vector2(331, 20)
 
 [node name="Node2D" type="Node2D"]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-top_level = true
-offset_left = 241.0
-offset_top = 132.0
-offset_right = 902.0
-offset_bottom = 580.0
-texture = ExtResource("1_7ror8")
-
-[node name="TextField" type="Label" parent="TextureRect"]
-top_level = true
-layout_mode = 0
-offset_left = 373.0
-offset_top = 251.0
-offset_right = 734.0
-offset_bottom = 433.0
-text = "
-"
-autowrap_mode = 3
 
 [node name="BG" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true

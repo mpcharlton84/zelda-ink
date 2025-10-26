@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://djr2uyi3u3ctq"]
+
+[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_7voku"]
+[ext_resource type="Script" uid="uid://cu4xkoqdhmi71" path="res://Assets/Scripts/_DialogUI.gd" id="1_eoorp"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_eoorp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3647059)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 242.0
+offset_top = 133.0
+offset_right = 915.0
+offset_bottom = 505.0
+texture = ExtResource("1_7voku")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 341.0
+offset_top = 189.0
+offset_right = 827.0
+offset_bottom = 444.0
+autowrap_mode = 3
+
+[connection signal="ready" from="." to="." method="_on_ready"]

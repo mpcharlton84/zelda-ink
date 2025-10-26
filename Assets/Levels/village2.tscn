@@ -1,8 +1,7 @@
-[gd_scene load_steps=139 format=3 uid="uid://dhcnqw4ouu4yn"]
+[gd_scene load_steps=138 format=3 uid="uid://dhcnqw4ouu4yn"]
 
 [ext_resource type="Script" uid="uid://484auxvvy5hc" path="res://Assets/Scripts/level.gd" id="1_oho7y"]
 [ext_resource type="Texture2D" uid="uid://bs6nt3ob23ynu" path="res://Assets/Maps/12d.png" id="2_jn87s"]
-[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="2_mw0qp"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="3_wabjq"]
 [ext_resource type="PackedScene" uid="uid://4p8kxsayj5iv" path="res://Assets/Prefabs/tree.tscn" id="4_typgm"]
 [ext_resource type="PackedScene" uid="uid://vpme3uksbp1r" path="res://Assets/Prefabs/bush.tscn" id="5_k3nqh"]
@@ -469,24 +468,6 @@ limit_left = 1100
 limit_right = 50
 limit_top = 1100
 limit_bottom = -450
-
-[node name="TextureRect" type="TextureRect" parent="Level"]
-visible = false
-top_level = true
-offset_left = 228.0
-offset_top = 103.0
-offset_right = 949.0
-offset_bottom = 551.0
-texture = ExtResource("2_mw0qp")
-
-[node name="Label" type="Label" parent="Level/TextureRect"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 115.0
-offset_right = 542.0
-offset_bottom = 319.0
-text = "pouet"
-autowrap_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level"]
 shape = SubResource("SegmentShape2D_uvw6m")

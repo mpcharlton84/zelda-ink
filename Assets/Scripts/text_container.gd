@@ -17,17 +17,14 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _process(_delta: float) -> void:
 	if isTouched && Input.is_action_just_pressed("sword"):
-		var panel = get_parent().get_child(0) as TextureRect;
-		var label = panel.get_child(0) as Label
 					
 		if currentText >= texts.size():
 			currentText = 0
 			isTouched = false
-			panel.visible = false
+			DialogUI.HideDialog()
 			Parameters.canMove = true
 		else:
 			Parameters.canMove = false
-			label.text = texts[currentText]
-			panel.visible = true
+			var text = texts[currentText]
+			DialogUI.ShowDialog(text, "message")
 			currentText += 1
-			SoundManager.PlaySound("message")

@@ -6,3 +6,4 @@ func _on_body_entered(body: Node2D) -> void:
 		visible = false
 		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 		SoundManager.PlaySound("rupee")
+		Parameters.rupees = Parameters.rupees + 1

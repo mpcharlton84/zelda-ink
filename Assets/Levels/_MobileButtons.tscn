@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjyjae4krko8v"]
+
+[ext_resource type="Script" uid="uid://b3m7x6ax87x8v" path="res://Assets/Scripts/_MobileUI.gd" id="1_y8dld"]
+[ext_resource type="Texture2D" uid="uid://b670wu6eygj1x" path="res://Assets/Screens/button.png" id="2_y8dld"]
+[ext_resource type="Texture2D" uid="uid://b2nhgyda17j2y" path="res://Assets/Screens/arrow.png" id="4_fvjij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pkk7"]
+size = Vector2(150, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dld"]
+size = Vector2(200, 200)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_y8dld")
+
+[node name="ActionButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.5647059)
+top_level = true
+position = Vector2(1012.00006, 493)
+scale = Vector2(0.44166666, 0.44166666)
+texture_normal = ExtResource("2_y8dld")
+texture_pressed = ExtResource("2_y8dld")
+shape = SubResource("RectangleShape2D_1pkk7")
+action = "sword"
+
+[node name="UpButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.5647059)
+top_level = true
+position = Vector2(106, 416)
+scale = Vector2(0.30147058, 0.30147058)
+texture_normal = ExtResource("4_fvjij")
+texture_pressed = ExtResource("4_fvjij")
+shape = SubResource("RectangleShape2D_y8dld")
+action = "up"
+
+[node name="DownButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.5647059)
+top_level = true
+position = Vector2(205, 605)
+rotation = 3.1415927
+scale = Vector2(0.30147058, 0.30147058)
+texture_normal = ExtResource("4_fvjij")
+texture_pressed = ExtResource("4_fvjij")
+shape = SubResource("RectangleShape2D_y8dld")
+action = "down"
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.5647059)
+top_level = true
+position = Vector2(17, 555)
+rotation = -1.5707964
+scale = Vector2(0.30147058, 0.30147058)
+texture_normal = ExtResource("4_fvjij")
+texture_pressed = ExtResource("4_fvjij")
+shape = SubResource("RectangleShape2D_y8dld")
+action = "left"
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.5647059)
+position = Vector2(296, 457)
+rotation = 1.5707964
+scale = Vector2(0.30147058, 0.30147058)
+texture_normal = ExtResource("4_fvjij")
+texture_pressed = ExtResource("4_fvjij")
+shape = SubResource("RectangleShape2D_y8dld")
+action = "right"
+
+[connection signal="ready" from="." to="." method="_on_ready"]

@@ -1,6 +1,5 @@
-[gd_scene load_steps=23 format=3 uid="uid://xc6heq64q4o1"]
+[gd_scene load_steps=22 format=3 uid="uid://xc6heq64q4o1"]
 
-[ext_resource type="Texture2D" uid="uid://bi6vnwj0ncbhj" path="res://Assets/Sprites/zeldaf-mad.png" id="1_6d3b1"]
 [ext_resource type="Texture2D" uid="uid://bymlkm611ubtx" path="res://Assets/Maps/castle2.png" id="1_jora1"]
 [ext_resource type="PackedScene" uid="uid://biuoc5ud5rayu" path="res://Assets/Prefabs/link.tscn" id="2_p0xpy"]
 [ext_resource type="Script" uid="uid://bhltn13eklubp" path="res://Assets/Scripts/zelda.gd" id="3_6d3b1"]
@@ -69,27 +68,6 @@ size = Vector2(104, 68)
 size = Vector2(194, 42)
 
 [node name="Node2D" type="Node2D"]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-top_level = true
-offset_left = 318.0
-offset_top = 151.0
-offset_right = 879.63965
-offset_bottom = 520.0
-texture = ExtResource("1_6d3b1")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.071
-anchor_bottom = 0.062000003
-offset_left = 273.0
-offset_top = 74.0
-offset_right = 491.1236
-offset_bottom = 296.122
-autowrap_mode = 3
 
 [node name="BG" type="StaticBody2D" parent="."]
 

@@ -8,3 +8,5 @@ var attacking:bool = false
 var foundTunnels = []
 var inventory = []
 var burns = []
+
+var rupees = 0

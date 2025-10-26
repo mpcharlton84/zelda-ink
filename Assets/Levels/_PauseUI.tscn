@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch6ukehp5cf6w"]
+
+[ext_resource type="Script" uid="uid://b3pbqgppecf83" path="res://Assets/Scripts/_PauseUI.gd" id="1_g6mkf"]
+[ext_resource type="Texture2D" uid="uid://b6c1ji5y228e1" path="res://Assets/Sprites/panel.jpg" id="1_ojvk1"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_g6mkf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3647059)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 242.0
+offset_top = 133.0
+offset_right = 915.0
+offset_bottom = 505.0
+texture = ExtResource("1_ojvk1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 370.0
+offset_top = 196.0
+offset_right = 417.0
+offset_bottom = 219.0
+text = "Pause"
+
+[node name="LabelProgression" type="Label" parent="."]
+offset_left = 372.0
+offset_top = 331.0
+offset_right = 547.0
+offset_bottom = 358.0
+text = "Sandwich progression:"
+
+[node name="LabelLanterns" type="Label" parent="."]
+offset_left = 371.0
+offset_top = 360.0
+offset_right = 506.0
+offset_bottom = 383.0
+text = "Lanterns pushed:"
+
+[node name="LabelRupees" type="Label" parent="."]
+offset_left = 373.0
+offset_top = 389.0
+offset_right = 434.0
+offset_bottom = 412.0
+text = "Rupees:"
+
+[node name="LabelSword" type="Label" parent="."]
+offset_left = 372.0
+offset_top = 306.0
+offset_right = 475.0
+offset_bottom = 329.0
+text = "Sword found:"
+
+[connection signal="ready" from="." to="." method="_on_ready"]

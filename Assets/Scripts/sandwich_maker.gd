@@ -10,13 +10,11 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Link":
 		isTouched = false
 
-func _process(_delta: float) -> void:
-	var panel = (get_parent().get_child(0) as TextureRect)
-	
+func _process(_delta: float) -> void:	
 	if !Parameters.canMove && Input.is_action_just_pressed("sword"):
-		panel.visible = false
+		DialogUI.HideDialog()
 		Parameters.canMove = true
-	elif isTouched && Input.is_action_just_pressed("sword"):
+	elif isTouched && Parameters.canMove && Input.is_action_just_pressed("sword"):
 		Parameters.canMove = false
 		
 		var text = "Hi, I'm the sandwich maker ! Bring me the three ingredients and I'll make Zelda's sandwich for you"
@@ -28,9 +26,5 @@ func _process(_delta: float) -> void:
 			Parameters.inventory.append("sandwich");
 		elif Parameters.inventory.size() > 0:
 			text = "If you need help finding other ingredients, go see the Fortune Teller north of the village, she always helps me"
-		
-		var textField = (panel.get_child(0) as Label)
-		
-		textField.text = text
-		panel.visible = true
-		SoundManager.PlaySound("message")
+			
+		DialogUI.ShowDialog(text, "message")

@@ -12,7 +12,7 @@ func _on_ready() -> void:
 	animated = true
 
 func _process(_delta: float) -> void:
-	if $TextureRect2.modulate.a >= 1 && !animated && Input.is_action_just_pressed("sword"):
+	if $TextureRect2.modulate.a >= 1 && !animated && (Input.is_action_just_pressed("sword") || Input.is_action_just_pressed("pause")):
 		TeleportParameters.Teleport("intro")
 	
 	if !animated:

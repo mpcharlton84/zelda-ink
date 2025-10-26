@@ -15,4 +15,5 @@ func _process(delta: float) -> void:
 		TeleportParameters.Teleport("start")
 
 func _on_ready() -> void:
+	PauseUi.canPause = false
 	MusicManager.PlayMusic("intro");
